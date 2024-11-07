@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<thrive>
+    <data>
+        <!--Activity-->
+        <record id="job_type_view_tree" model="ir.ui.view">
+            <field name="name">job.type.view.tree</field>
+            <field name="model">job.type</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="name" required="1"/>
+                    <field name="sub_category_ids" required="1" widget="many2many_tags"/>
+                </tree>
+            </field>
+        </record>
+        <record id="job_type_action" model="ir.actions.act_window">
+            <field name="name">Work Type</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">job.type</field>
+            <field name="view_mode">tree</field>
+        </record>
+        <!--Sub Category-->
+        <record id="job_category_view_tree" model="ir.ui.view">
+            <field name="name">job.category.view.tree</field>
+            <field name="model">job.sub.category</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="name" required="1"/>
+                </tree>
+            </field>
+        </record>
+        <record id="job_category_action" model="ir.actions.act_window">
+            <field name="name">Work Sub Type</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">job.sub.category</field>
+            <field name="view_mode">tree</field>
+        </record>
+        <!--Policy Risk-->
+        <record id="policy_risk_view_tree" model="ir.ui.view">
+            <field name="name">policy.risk.view.tree</field>
+            <field name="model">insurance.risk</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="name" required="1"/>
+                </tree>
+            </field>
+        </record>
+        <record id="policy_risk_action" model="ir.actions.act_window">
+            <field name="name">Policy Risk</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">insurance.risk</field>
+            <field name="view_mode">tree</field>
+        </record>
+    </data>
+</thrive>

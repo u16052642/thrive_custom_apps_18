@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<thrive>
+    <data>
+        <record id="constriction_site_view_form" model="ir.ui.view">
+            <field name="name">construction.site.view.form</field>
+            <field name="model">tk.construction.site</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="status" widget="statusbar"/>
+                        <button name="%(construction_site_project_action)d" type="action" string="Create Sub Project" invisible="status == 'complete'" class="btn btn-primary"/>
+                        <button name="action_site_complete" type="object" string="Complete" class="btn btn-primary" invisible="status != 'in_progress'"/>
+                        <button name="action_site_in_progress" type="object" string="In Progress" class="btn btn-primary" invisible="status != 'draft'"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button" type="object" name="action_view_project" icon="fa-briefcase">
+                                <field name="project_count" string='Sub Projects' widget="statinfo"/>
+                            </button>
+                            <button class="oe_stat_button" type="object" name="action_gmap_location" icon="fa-location-arrow" string="Map Location" invisible="not latitude or not longitude">
+                            </button>
+                            <button class="oe_stat_button" type="object" name="action_site_document" icon="fa-file-text">
+                                <field name="document_count" string='Documents' widget="statinfo"/>
+                            </button>
+                        </div>
+                        <h1>
+                            <field name="name" placeholder="Project Name" required="1"/>
+                        </h1>
+                        <br/>
+                        <group>
+                            <group>
+                                <field name="warehouse_id" required="1"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group string="Address">
+                                <span class="o_form_label o_td_label" name="address_name">
+                                    <b>Address</b>
+                                </span>
+                                <div class="o_address_format">
+                                    <field name="street" placeholder="Street..." class="o_address_street"/>
+                                    <field name="street2" placeholder="Street 2..." class="o_address_street"/>
+                                    <field name="city" placeholder="City" class="o_address_city"/>
+                                    <field name="state_id" class="o_address_state" placeholder="State" options="{'no_open': True, 'no_quick_create': True}"/>
+                                    <field name="zip" placeholder="ZIP" class="o_address_zip"/>
+                                    <field name="country_id" placeholder="Country" class="o_address_country" options="{'no_open': True, 'no_quick_create': True}"/>
+                                </div>
+                            </group>
+                            <group string="Duration">
+                                <field name="start_date" required="1"/>
+                                <field name="end_date" required="1"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group string="Geographic Location">
+                                <field name="longitude"/>
+                                <field name="latitude"/>
+                            </group>
+                            <group string="Contact Details">
+                                <field name="phone" widget="phone"/>
+                                <field name="mobile" widget="phone"/>
+                                <field name="email" widget="email"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Sub Projects" name="con_project">
+                                <field name="construction_project_ids" readonly="1" force_save="1">
+                                    <kanban>
+                                        <field name="name"/>
+                                        <field name="project_progress"/>
+                                        <field name="code"/>
+                                        <templates>
+                                            <t t-name="kanban-box">
+                                                <div t-attf-class="oe_kanban_global_click">
+                                                    <div class="row mb4">
+                                                        <div class="col-8">
+                                                            <h3>
+                                                                <field name="name" class="text-primary"/>
+                                                            </h3>
+                                                            <h6 t-if="record.warehouse_id.raw_value">
+                                                                <i class="fa fa-building-o" role="img" aria-label="Warehouse" title="Warehouse"/>
+                                                                <field name="warehouse_id" class="ms-1"/>
+                                                            </h6>
+                                                            <h6 t-if="record.department_id.raw_value">
+                                                                <i class="fa fa-users" role="img" aria-label="department" title="Department"/>
+                                                                <field name="department_id" class="ms-1"/>
+                                                            </h6>
+                                                        </div>
+                                                        <div class="col-4" style="text-align:right;">
+                                                            <field name="project_progress" widget="percentpie" nolabel="1"/>
+                                                            <field name="stage" widget="badge" decoration-success="stage=='Handover'" decoration-primary="stage=='Procurement'" decoration-warning="stage=='Planning'" decoration-info="stage=='Construction'"/>
+                                                        </div>
+                                                    </div>
+                                                    <hr style="margin: 5px 0px 5px 0px;"/>
+                                                    <h6 class="text-center text-primary">
+                                                        <strong>
+                                                            Project States
+                                                        </strong>
+                                                    </h6>
+                                                    <hr style="margin: 5px 0px 5px 0px;"/>
+                                                    <div class="row">
+                                                        <div class="col-6 mb4">
+                                                            <button name="action_view_budget" type="object" class="btn btn-outline-primary w-100" icon="fa-briefcase">
+                                                                Budget Analysis
+                                                            </button>
+                                                        </div>
+                                                        <div class="col-6 mb4">
+                                                            <button class="btn btn-outline-primary w-100" type="object" name="action_view_job_sheet" icon="fa-files-o">
+                                                                Phase(WBS)
+                                                            </button>
+                                                        </div>
+                                                        <div class="col-6 mb4">
+                                                            <button class="btn btn-outline-primary w-100" type="object" name="action_view_job_order" icon="fa-folder-open">
+                                                                Work Order
+                                                            </button>
+                                                        </div>
+                                                        <div class="col-6 mb4">
+                                                            <button class="btn btn-outline-primary w-100" type="object" name="action_view_jo_purchase_orders" icon="fa-list-ul">
+                                                                Work Order PO
+                                                            </button>
+                                                        </div>
+                                                        <div class="col-6 mb4">
+                                                            <button class="btn btn-outline-primary w-100" type="object" name="action_view_material_requisition" icon="fa-gears">
+                                                                MREQ
+                                                            </button>
+                                                        </div>
+                                                        <div class="col-6 mb4">
+                                                            <button class="btn btn-outline-primary w-100" type="object" name="action_view_mrq_purchase_orders" icon="fa-list-ol">
+                                                                MREQ PO
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </t>
+                                        </templates>
+                                    </kanban>
+                                </field>
+                            </page>
+                            <page string="StackHolder" name="construction_stakeholder">
+                                <field name="stakeholder_ids">
+                                    <form>
+                                        <group>
+                                            <group>
+                                                <field name="stakeholder_id"/>
+                                            </group>
+                                            <group>
+                                                <field name="percentage"/>
+                                            </group>
+                                        </group>
+                                    </form>
+                                    <kanban>
+                                        <field name="id"/>
+                                        <field name="stakeholder_id"/>
+                                        <field name="percentage"/>
+                                        <field name="phone"/>
+                                        <field name="email"/>
+                                        <templates>
+                                            <t t-name="kanban-box">
+                                                <div class="oe_kanban_global_click">
+                                                    <div class="row">
+                                                        <div class="col-3">
+                                                            <div class="o_kanban_image">
+                                                                <img alt="Contact image" t-att-src="kanban_image('stakeholder.line', 'image_1920', record.id.raw_value)"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-9" style="padding-left: 0px;">
+                                                            <div class="oe_kanban_details">
+                                                                <field name="stakeholder_id"/>
+                                                                <div t-if="record.email.raw_value">
+                                                                    <field name="email" widget="email"/>
+                                                                </div>
+                                                                <div t-if="record.phone.raw_value">Phone:
+                                                                    <t t-esc="record.phone.value"/>
+                                                                </div>
+                                                            </div>
+                                                            <field name="percentage" widget="percentpie"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </t>
+                                        </templates>
+                                    </kanban>
+                                </field>
+                            </page>
+                            <page string="Images" name="site_images">
+                                <field name="site_image_ids">
+                                    <form>
+                                        <div class="oe_title float-left">
+                                            <label for="name"/>
+                                            <h1>
+                                                <field name="name" required="1"/>
+                                            </h1>
+                                        </div>
+                                        <div style="width:40%;height:40%;" class="float-right">
+                                            <field name="image" style="width:40%;height:40%;" class="img-thumbnail float-right" widget="image" required="1"/>
+                                        </div>
+                                    </form>
+                                    <kanban>
+                                        <field name="id"/>
+                                        <field name="name"/>
+                                        <field name="image"/>
+                                        <templates>
+                                            <t t-name="kanban-box">
+                                                <div class="oe_kanban_global_click border-0" style="width:333px;margin-top: -5px;margin-bottom: 0px;margin-right:-14px;">
+                                                    <img alt="Avtar" t-att-src="kanban_image('site.images','image',record.id.raw_value)" style="width:30rem;height:20rem;" class="img-thumbnail"/>
+                                                    <span style="font-size: 1.625rem;line-height: 1.625rem;min-height: 3.25rem;">
+                                                        <center style="background-color: whitesmoke;">
+                                                            <field name="name"/>
+                                                        </center>
+                                                    </span>
+                                                </div>
+                                            </t>
+                                        </templates>
+                                    </kanban>
+                                </field>
+                            </page>
+                            <page name="site_dimension" string="Project Measurement">
+                                <field name="site_dimension_ids">
+                                    <tree editable="bottom">
+                                        <field name="name" required="1"/>
+                                        <field name="length" required="1"/>
+                                        <field name="width" required="1"/>
+                                        <field name="area" string="Area(m&#178;)"/>
+                                    </tree>
+                                </field>
+                                <group>
+                                    <group class="oe_subtotal_footer oe_right" style="text-align: right">
+                                        <field name="total_area" string="Total Area(m&#178;)"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Permits &amp; Approvals" name="document_permit">
+                                <field name="document_permit_ids">
+                                    <tree editable="bottom">
+                                        <field name="date"/>
+                                        <field name="document_type_id" required="1"/>
+                                        <field name="file_name" column_invisible="1"/>
+                                        <field name="document" filename="file_name" widget="binary"/>
+                                        <field name="submitted_by" required="1"/>
+                                        <field name="feedback"/>
+                                        <field name="status" widget="badge" decoration-success="status=='a'" decoration-danger="status=='r'"/>
+                                        <button name="action_approve" type="object" string="Approve" invisible="status == 'a'" class="btn btn-success"/>
+                                        <button name="action_reject" type="object" string="Reject" invisible="status == 'r'" class="btn btn-danger"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="construction_site_view_tree" model="ir.ui.view">
+            <field name="name">construction.site.tree.view</field>
+            <field name="model">tk.construction.site</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="warehouse_id"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="city"/>
+                    <field name="country_id"/>
+                    <field name="status" widget="badge" decoration-success="status=='complete'" decoration-warning="status=='in_progress'"/>
+                </tree>
+            </field>
+        </record>
+        <record id="construction_site_action" model="ir.actions.act_window">
+            <field name="name">Construction Project</field>
+            <field name="res_model">tk.construction.site</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form,activity</field>
+        </record>
+    </data>
+</thrive>

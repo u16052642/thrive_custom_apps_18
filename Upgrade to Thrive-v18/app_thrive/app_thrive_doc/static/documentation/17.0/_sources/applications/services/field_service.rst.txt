@@ -1,0 +1,17 @@
+:nosearch:
+:show-content:
+:hide-page-toc:
+:show-toc:
+
+=============
+Field Service
+=============
+
+.. seealso::
+   - `Thrive Bureau ERP Tutorials: Field Service <https://www.thrivebureau.com/slides/field-service-49>`_
+
+.. toctree::
+   :titlesonly:
+
+   field_service/onsite_interventions
+   field_service/default_warehouse

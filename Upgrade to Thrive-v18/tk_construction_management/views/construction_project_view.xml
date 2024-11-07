@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<thrive>
+    <data>
+        <record id="constriction_project_view_form" model="ir.ui.view">
+            <field name="name">construction.project.view.form</field>
+            <field name="model">tk.construction.project</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="id" invisible="1" />
+                        <field name="stage" widget="statusbar" />
+                        <button name="action_project_planning" type="object" string="Planning"
+                            invisible="stage != 'draft'" />
+                        <button name="%(project_warehouse_action)d" type="action"
+                            string="Warehouse Selection" class="btn btn-primary"
+                            invisible="stage != 'Planning' or warehouse_id" />
+                        <button name="%(budget_construction_action)d" type="action"
+                            string="Create Budget" class="btn btn-primary"
+                            invisible="stage != 'Planning' or budget_id" />
+                        <button name="action_stage_procurement" type="object" string="Procurement"
+                            invisible="stage != 'Planning'" />
+                        <button name="action_stage_construction" type="object"
+                            string="Start Construction" invisible="stage != 'Procurement'" />
+                        <button name="%(project_phase_action)d" type="action"
+                            string="Create Project Phase (WBS)" class="btn btn-primary"
+                            invisible="stage != 'Construction'" />
+                        <button name="action_stage_handover" type="object" string="Handover"
+                            invisible="stage != 'Construction'" />
+                            <button name="action_print_budget_excel_report" type="object"
+                                string="Print Budget Excel Report"
+                                invisible="stage not in ['Construction','Handover']" />
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button" type="object"
+                                name="action_view_project_task" icon="fa-tasks">
+                                <field name="task_count" string='Tasks' widget="statinfo" />
+                            </button>
+                            <button class="oe_stat_button" type="object"
+                                name="action_view_project_task_inspection" icon="fa-star">
+                                <field name="inspection_task_count" string='Inspection Tasks'
+                                    widget="statinfo" />
+                            </button>
+                            <button class="oe_stat_button" type="object"
+                                name="action_view_job_sheet" icon="fa-files-o">
+                                <field name="job_sheet_count" string='Project Phase(WBS)'
+                                    widget="statinfo" />
+                            </button>
+                            <button class="oe_stat_button" type="object"
+                                name="action_view_job_order" icon="fa-folder-open">
+                                <field name="job_order_count" string='Work Order' widget="statinfo" />
+                            </button>
+                            <button class="oe_stat_button" type="object"
+                                name="action_view_material_requisition" icon="fa-gears">
+                                <field name="mrq_count" string='Material Requisition'
+                                    widget="statinfo" />
+                            </button>
+                            <button class="oe_stat_button" type="object" name="action_view_budget"
+                                icon="fa-folder" invisible="not budget_id">
+                                <field name="budget_count" string='Budget' widget="statinfo" />
+                            </button>
+                            <button class="oe_stat_button" type="object"
+                                name="action_view_mrq_purchase_orders" icon="fa-list-ul">
+                                <field name="mrq_po_count" string='MRQ PO' widget="statinfo" />
+                            </button>
+                            <button class="oe_stat_button" type="object"
+                                name="action_view_jo_purchase_orders" icon="fa-list-ul">
+                                <field name="jo_po_count" string='Work Order PO' widget="statinfo" />
+                            </button>
+                            <button class="oe_stat_button" type="object" name="action_gmap_location"
+                                icon="fa-location-arrow" string="Map Location"
+                                invisible="not longitude or not latitude">
+                            </button>
+                            
+                        </div>
+                        <div class="row">
+                            <div class="col-9">
+                                <h1>
+                                    <field name="name" placeholder="Title" required="1" />
+                                </h1>
+                                <h5>
+                                    <field name="construction_site_id"
+                                        placeholder="Construction Project" required="1" />
+                                </h5>
+                            </div>
+                            <div class="col-3" style="text-align:right;">
+                                <field name="project_progress" widget="percentpie" nolabel="1" />
+                            </div>
+                        </div>
+                        <br />
+                        <group>
+                            <group>
+                                <field name="code" required="1" />
+                            </group>
+                            <group>
+                                <field name="warehouse_id" readonly="1" force_save="1"
+                                    invisible="not warehouse_id" />
+                                <field name="project_id" readonly="1" force_save="1"
+                                    invisible="not project_id" />
+                                <field name="budget_id" readonly="1" force_save="1"
+                                    invisible="not budget_id" />
+                            </group>
+                        </group>
+                        <group>
+                            <group string="Department">
+                                <field name="department_id" required="1" />
+                                <field name="department_manager_ids" invisible="1" />
+                                <field name="manager_ids" required="1" widget="many2many_tags"
+                                    domain="[('id','in',department_manager_ids)]" />
+                                <field name="department_user_ids" invisible="1" />
+                                <field name="user_id" required="1"
+                                    domain="[('id','in',department_user_ids)]" />
+                            </group>
+                            <group string="Duration">
+                                <field name="project_progress" invisible="1" />
+                                <field name="start_date" />
+                                <field name="end_date" />
+                                <field name="responsible_id" widget="many2one_avatar_user" />
+                            </group>
+                        </group>
+                        <group string="Address">
+                            <group>
+                                <span class="o_form_label o_td_label" name="address_name">
+                                    <b>Address</b>
+                                </span>
+                                <div class="o_address_format">
+                                    <field name="street" placeholder="Street..."
+                                        class="o_address_street" />
+                                    <field name="street2" placeholder="Street 2..."
+                                        class="o_address_street" />
+                                    <field name="city" placeholder="City" class="o_address_city" />
+                                    <field name="state_id" class="o_address_state"
+                                        placeholder="State"
+                                        options="{'no_open': True, 'no_quick_create': True}" />
+                                    <field name="zip" placeholder="ZIP" class="o_address_zip" />
+                                    <field name="country_id" placeholder="Country"
+                                        class="o_address_country"
+                                        options="{'no_open': True, 'no_quick_create': True}" />
+                                </div>
+                            </group>
+                            <group>
+                                <field name="longitude" />
+                                <field name="latitude" />
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Engineers">
+                                <group>
+                                    <field name="engineer_ids" widget="many2many_tags" />
+                                </group>
+                            </page>
+                            <page string="Documents" name="building_documets">
+                                <field name="document_ids">
+                                    <tree editable="bottom">
+                                        <field name="document_type_id" required="1" />
+                                        <field name="file_name" column_invisible="1" />
+                                        <field name="document" filename="file_name" widget="binary" />
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Insurance" name="building_insurance">
+                                <field name="policy_ids">
+                                    <tree editable="bottom">
+                                        <field name="vendor_id" required="1" />
+                                        <field name="issue_date" required="1" />
+                                        <field name="name" required="1" />
+                                        <field name="policy_no" required="1" />
+                                        <field name="risk_ids" widget="many2many_tags" />
+                                        <field name="file_name" column_invisible="1" />
+                                        <field name="document" filename="file_name" widget="binary" />
+                                        <field name="total_charge" required="1" />
+                                        <field name="company_id" column_invisible="1" />
+                                        <field name="currency_id" column_invisible="1" />
+                                        <field name="bill_id" readonly="1" force_save="1"
+                                            widget="many2one_clickable" />
+                                        <button name="action_create_bil" type="object"
+                                            string="Create Bill" class="btn btn-primary"
+                                            invisible="bill_id" />
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Extra Expense">
+                                <field name="expense_ids">
+                                    <tree editable="bottom">
+                                        <field name="date" required="1" />
+                                        <field name="vendor_id" required="1" />
+                                        <field name="product_id" required="1" />
+                                        <field name="note" />
+                                        <field name="qty" required="1" />
+                                        <field name="cost" required="1" />
+                                        <field name="bill_id" readonly="1" force_save="1"
+                                            widget="many2one_clickable" />
+                                        <button name="action_create_expense_bill" type="object"
+                                            string="Create Bill" class="btn btn-primary"
+                                            invisible="bill_id" />
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="BOQ">
+                                <group>
+                                    <group>
+                                        <field name="is_use_measure" />
+                                    </group>
+                                </group>
+                                <field name="boq_budget_ids" readonly="budget_id">
+                                    <tree editable="bottom">
+                                        <field name="site_id" column_invisible="1" />
+                                        <field name="activity_id" required="1" />
+                                        <field name="sub_activity_ids" column_invisible="1" />
+                                        <field name="sub_activity_id" required="1" />
+                                        <field name="qty" required="1" />
+                                        <field name="is_use_measure" column_invisible="1" />
+                                        <field name="length"
+                                            column_invisible="not parent.is_use_measure"
+                                            required="is_use_measure" />
+                                        <field name="width"
+                                            column_invisible="not parent.is_use_measure"
+                                            required="is_use_measure" />
+                                        <field name="height"
+                                            column_invisible="not parent.is_use_measure"
+                                            required="is_use_measure" />
+                                        <field name="total_qty" required="1"
+                                            column_invisible="not parent.is_use_measure" />
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" />
+                        <field name="activity_ids" />
+                        <field name="message_ids" />
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="construction_project_view_tree" model="ir.ui.view">
+            <field name="name">construction.project.view.tree</field>
+            <field name="model">tk.construction.project</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="construction_site_id" />
+                    <field name="code" />
+                    <field name="warehouse_id" />
+                    <field name="construction_site_id" />
+                    <field name="start_date" />
+                    <field name="end_date" />
+                    <field name="department_id" />
+                    <field name="project_progress" widget="progressbar" nolabel="1" />
+                    <field name="stage" widget="badge" decoration-success="stage=='Handover'"
+                        decoration-primary="stage=='Procurement'"
+                        decoration-warning="stage=='Planning'"
+                        decoration-info="stage=='Construction'" />
+                </tree>
+            </field>
+        </record>
+        <record id="construction_project_view_search" model="ir.ui.view">
+            <field name="name">construction.project.view.search</field>
+            <field name="model">tk.construction.project</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name" />
+                    <group expand="1" string="Group By">
+                        <filter string="Project" name="group_by_job_sheet"
+                            context="{'group_by': 'construction_site_id'}" />
+                        <filter string="Department" name="group_by_department"
+                            context="{'group_by': 'department_id'}" />
+                    </group>
+                    <searchpanel>
+                        <field name="stage" icon="fa-filter" enable_counters="1" />
+                    </searchpanel>
+                </search>
+            </field>
+        </record>
+        <record id="construction_project_action_act" model="ir.actions.act_window">
+            <field name="name">Construction Sub Project</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">tk.construction.project</field>
+            <field name="view_mode">tree,form,activity</field>
+        </record>
+    </data>
+</thrive>

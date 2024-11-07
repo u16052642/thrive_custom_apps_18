@@ -1,0 +1,27 @@
+<thrive>
+    <data>
+        <record id="hr_payslip_run_view_form" model="ir.ui.view">
+            <field name="name">hr.payslip.run.inherit.form</field>
+            <field name="model">hr.payslip.run</field>
+            <field name="inherit_id" ref="hr_payroll.hr_payslip_run_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header" position="inside">
+                    <button name="create_invoice" type="object" string="Create Invoice" invisible="state not in ['close','done']" class="oe_highlight" confirm="Are you sure you want to proceed ?"/>
+                </xpath>
+                <xpath expr="//field[@name='company_id']" position="after">
+                    <field name="project_id"/>
+                </xpath>
+                <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
+                    <field name="invoice_count" invisible="1"/>
+                    <button name="action_open_invoices" class="oe_stat_button" icon="fa-book" type="object" help="Invoices" invisible="invoice_count == 0">
+                        <div class="o_field_widget o_stat_info">
+                            <span class="o_stat_value"><field name="invoice_count"/></span>
+                            <span class="o_stat_text">Invoices</span>
+                         </div>
+                    </button>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</thrive>
+

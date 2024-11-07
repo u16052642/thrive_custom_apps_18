@@ -1,0 +1,12 @@
+<thrive>
+    <record id="project_search_view_custom" model="ir.ui.view">
+        <field name="name">project.search.custom</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project_project_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='company']" position="after">
+                <filter string="Customer" name="custom" context="{'group_by': 'partner_id'}"/>
+            </xpath>
+        </field>
+    </record>
+</thrive>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<thrive>
+    <data>
+        <record id="work_entry_type_timesheet" model="hr.work.entry.type">
+            <field name="name">Timesheet</field>
+            <field name="color">0</field>
+            <field name="code">TIME100</field>
+        </record>
+    </data>
+</thrive>

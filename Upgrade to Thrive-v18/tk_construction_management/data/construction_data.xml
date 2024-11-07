@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<thrive>
+    <data noupdate="1">
+        <!--Product-->
+        <record id="construction_product_1" model="product.product">
+            <field name="name">Insurance</field>
+            <field name="detailed_type">service</field>
+        </record>
+    </data>
+</thrive>

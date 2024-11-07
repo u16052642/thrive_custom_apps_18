@@ -1,0 +1,17 @@
+:nosearch:
+:show-content:
+:hide-page-toc:
+:show-toc:
+
+========
+Helpdesk
+========
+
+.. seealso::
+   - `Thrive Bureau ERP Tutorials: Helpdesk <https://www.thrivebureau.com/slides/helpdesk-51>`_
+
+.. toctree::
+   :titlesonly:
+
+   helpdesk/overview
+   helpdesk/advanced

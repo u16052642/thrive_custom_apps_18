@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+    <t t-name="bulk_list_attendance_timesheet.ListView.Buttons" t-inherit="web.ListView.Buttons">
+        <xpath expr="//div[hasclass('o_list_buttons')]" position="after">
+            <button type="button" class="btn btn-primary" style="margin-left: 10px;" t-on-click="onclickToDayShift">
+                Today's Shift
+            </button>
+        </xpath>
+    </t>
+    <t t-name="bulk_list_attendance_timesheet.TodayAttendanceButton" t-inherit="web.ListView.Buttons">
+        <xpath expr="//div[hasclass('o_list_buttons')]" position="after">
+            <button type="button" class="btn btn-primary" style="margin-left: 10px;"
+                    t-on-click="onclickToDayAttendance">
+                Today's Attendance
+            </button>
+        </xpath>
+    </t>
+</templates>

@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="utf-8"?>
+<thrive>
+    <template id="custom_report_payslip">
+        <t t-call="web.html_container">
+            <t t-call="web.basic_layout">
+                <div class="page">
+                    <style>
+                        .border{
+                        border: 1px solid black !important;
+                        border-radius: 2px;
+                        }
+                        .bold{
+                        font-weight: bold;
+                        }
+                        div{
+                        padding: 3px;
+                        }
+                        th, td{
+                        padding: 3px;
+                        }
+                        td{
+                        border: 0px solid white
+                        }
+                        .center{
+                        text-align: center;
+                        }
+                        .left{
+                        text-align: left;
+                        }
+                        .right{
+                        text-align: right;
+                        }
+
+                    </style>
+                    <t t-set="payslip" t-value="docs"/>
+
+                    <div class="container border">
+                        <div class="row border bold">
+                            <div class="col-6 center">
+                                COMPANY NAME
+                            </div>
+                            <div class="col-3 center">
+                                PERIOD
+                            </div>
+                            <div class="col-3 center">
+                                Date
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6 center">
+                                <t t-esc="env.company.name"/>
+                            </div>
+                            <div class="col-3 center">
+                                <!--                                    <t t-esc="payslip.date_from"/>-->
+                                <!--                                    <t t-set="datetime" t-value="datetime"/>-->
+                                <t t-set="datetime" t-value="datetime.datetime"/>
+                                <t t-set="date_diff"
+                                   t-value="datetime.strptime(payslip.date_to.strftime('%Y-%m-%d'), '%Y-%m-%d') - datetime.strptime(payslip.employee_id.contract_id.date_start.strftime('%Y-%m-%d'), '%Y-%m-%d')"/>
+                                <t t-set="months_diff" t-value="date_diff.days // 30"/>
+                                <t t-esc="months_diff"/>
+
+
+                            </div>
+                            <div class="col-3 center">
+                                <t t-esc="payslip.date_to"/>
+                            </div>
+                        </div>
+
+                        <div class="row border bold">
+                            <div class="col-4 left">
+                                EMPLOYEE CODE
+                            </div>
+                            <div class="col-4 center">
+                                EMPLOYEE NAME
+                            </div>
+                            <div class="col-4 center">
+                                PAYPOINT
+                            </div>
+                        </div>
+
+                        <div class="row pt-2 pb-4">
+                            <div class="col-4 center">
+                                <t t-esc="payslip.employee_id.registration_number"/>
+                            </div>
+                            <div class="col-4 center">
+                                <t t-esc="payslip.employee_id.name"/>
+                            </div>
+                            <div class="col-4 center">
+                                <t t-set="paypoints" t-value="payslip.employee_id.project_ids"/>
+                                <t t-foreach="paypoints" t-as="paypoint">
+                                    <t t-esc="paypoint.name"/>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container border mt-5">
+                        <div class="row">
+                            <div class="col-3 border left bold">
+                                EMPLOYEE CODE
+                            </div>
+                            <div class="col-2 left">
+                                <t t-esc="payslip.employee_id.registration_number"/>
+                            </div>
+
+                            <div class="col-3 border left bold">
+                                EMPLOYEE NAME
+                            </div>
+
+                            <div class="col-4 left">
+                                <t t-esc="payslip.employee_id.name"/>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-3 border left bold">
+                                DESIGNATION
+                            </div>
+                            <div class="col-4 left">
+                                <t t-esc="payslip.employee_id.job_id.name"/>
+                            </div>
+
+                            <div class="col-2 border center bold">
+                                PAYPOINT
+                            </div>
+
+                            <div class="col-3 left">
+                                <t t-set="paypoints" t-value="payslip.employee_id.project_ids"/>
+                                <t t-foreach="paypoints" t-as="paypoint">
+                                    <t t-esc="paypoint.name"/>
+                                </t>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-3 border left bold">
+                                COMPANY NAME
+                            </div>
+                            <div class="col-6 left">
+                                <t t-esc="env.company.name"/>
+                            </div>
+
+                            <div class="col-1 border center bold">
+                                PSIRA
+                            </div>
+
+                            <div class="col-2 center">
+                                <t t-if="payslip.employee_id.psira_number">
+                                    <t t-esc="payslip.employee_id.xpsira_number"/>
+                                </t>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-3 left bold">
+                                PAYE REF
+                                <br/>
+                                UIF REF
+                            </div>
+                            <div class="col-4 left">
+                                <t t-esc="payslip.employee_id.paye_ref"/>
+                                <br/>
+                                <t t-esc="payslip.employee_id.uif_ref"/>
+                            </div>
+
+                            <div class="col-2 bold center bold">
+                                Date Engaged
+                                <br/>
+                                <t t-esc="payslip.employee_id.contract_id.date_start"/>
+                            </div>
+
+                            <div class="col-1 border center bold">
+                                Date
+                            </div>
+
+                            <div class="col-2 right">
+                                <t t-esc="payslip.employee_id.psira_expire_date"/>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-3 left bold">
+                                IDENTITY No.
+                            </div>
+                            <div class="col-6 left">
+                                <t t-esc="payslip.employee_id.identification_id"/>
+                            </div>
+
+                            <div class="col-1 border center bold">
+                                RATE
+                            </div>
+
+                            <div class="col-2 right">
+                                N/A
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-3 bold left">
+                                BANK ACC NO:
+                            </div>
+                            <div class="col-2 left">
+                                <t t-esc="payslip.employee_id.bank_account_id.acc_number"/>
+                            </div>
+
+                            <div class="col-2 bold">
+                                BRANCH CODE:
+                            </div>
+
+                            <div class="col-3 center">
+                                <t t-esc="payslip.employee_id.bank_account_id.bank_id.name"/>
+                            </div>
+
+                            <div class="col-2 bold center">
+                                INCOME
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <table>
+                                <tr class="border bold">
+                                    <th colspan="6">DESCRIPTION</th>
+                                    <th colspan="3">HOURS</th>
+                                    <th class="right" colspan="3">AMOUNT</th>
+                                </tr>
+                                <t t-set="basics" t-value="payslip.worked_days_line_ids"/>
+                                <t t-set="basic_total" t-value="0"/>
+                                <t t-foreach="basics" t-as="basic">
+                                    <tr>
+                                        <td colspan="6" class="left">
+                                            <t t-esc="basic.name"/>
+                                        </td>
+                                        <td colspan="3" class="right">
+                                            <t t-esc="'{:,.2f}'.format(basic.number_of_hours)"/>
+                                        </td>
+                                        <td class="right" colspan="3">
+                                            <t t-esc="'{:,.2f}'.format(basic.amount)"/>
+                                        </td>
+                                        <t t-set="basic_total" t-value="basic_total+basic.amount"/>
+                                    </tr>
+                                </t>
+                                <t t-set="basics_com"
+                                   t-value="payslip.line_ids.filtered(lambda x:x.category_id.name == 'Bonus')"/>
+
+                                <t t-foreach="basics_com" t-as="basic_c">
+                                    <tr>
+                                        <td colspan="6" class="left">
+                                            <t t-esc="basic_c.name"/>
+                                        </td>
+                                        <td colspan="3" class="right">
+
+                                        </td>
+                                        <td class="right" colspan="3">
+                                            <t t-esc="'{:,.2f}'.format(basic_c.total)"/>
+                                        </td>
+                                        <t t-set="basic_total" t-value="basic_total+basic_c.total"/>
+                                    </tr>
+                                </t>
+                            </table>
+                        </div>
+
+                        <div class="row" style="margin-top: 10px;">
+                            <div class="col-6">
+                                <t t-esc="' '"/>
+                            </div>
+                            <div class="col-6 border">
+                                <div class="row">
+                                    <div class="col-6 bold left">GROSS EARNING</div>
+                                    <div class="col-6 right">
+                                        <t t-esc="basic_total"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="mt-1 mb-2">
+                            <div class="row border">
+                                <div class="col-6 bold center">
+                                    ALLOWANCES
+                                </div>
+                                <div class="col-6 bold center">
+                                    COMPANY CONTRIBUTIONS
+                                </div>
+                            </div>
+                            <div class="row border">
+                                <div class="col-6 bold">
+                                    <t t-set="allowances"
+                                       t-value="payslip.line_ids.filtered(lambda x:x.category_id.name == 'Allowance')"/>
+                                    <table>
+                                        <t t-foreach="allowances" t-as="allowance">
+                                            <tr>
+                                                <td class="left">
+                                                    <t t-esc="allowance.name"/>
+                                                </td>
+                                                <td>
+                                                    <t t-esc="'         '"/>
+                                                </td>
+                                                <td class="right">
+                                                    <t t-esc="allowance.total"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </table>
+                                </div>
+                                <div class="col-6 bold center">
+                                    <t t-set="comp"
+                                       t-value="payslip.line_ids.filtered(lambda x:x.category_id.name == 'Company Contribution')"/>
+                                    <table>
+                                        <t t-foreach="comp" t-as="com">
+                                            <tr>
+                                                <td class="left">
+                                                    <t t-esc="com.name"/>
+                                                </td>
+                                                <td>
+                                                    <t t-esc="' '"/>
+                                                </td>
+                                                <td class="right">
+                                                    <t t-esc="com.total"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5"/>
+                            <div class="col-2 border bold center">DEDUCTIONS</div>
+                            <div class="col-5"/>
+                        </div>
+
+
+                        <div class="row">
+                            <table>
+                                <tr class="border bold">
+                                    <th colspan="8">DESCRIPTION</th>
+                                    <th colspan="2">BALANCE</th>
+                                    <th class="right" colspan="2">AMOUNT</th>
+                                </tr>
+                                <t t-set="deds"
+                                   t-value="payslip.line_ids.filtered(lambda x:x.category_id.name == 'Deduction')"/>
+                                <t t-set="ded_total" t-value="0"/>
+                                <t t-foreach="deds" t-as="ded">
+                                    <tr>
+                                        <td colspan="8" class="left">
+                                            <t t-esc="ded.name"/>
+                                        </td>
+                                        <td colspan="2" class="right">0.00</td>
+                                        <td class="right" colspan="2">
+                                            <t t-esc="ded.total"/>
+                                        </td>
+                                        <t t-set="ded_total" t-value="ded_total + ded.total"/>
+                                    </tr>
+                                </t>
+                            </table>
+                        </div>
+
+
+                        <div class="row" style="margin-top: 10px;">
+                            <div class="col-6">
+                                <t t-esc="' '"/>
+                            </div>
+                            <div class="col-6 border">
+                                <div class="row">
+                                    <div class="col-6 bold">TOTAL DEDUCTIONS</div>
+                                    <div class="col-6 right">
+                                        <t t-esc="ded_total"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-top: 10px;">
+                            <div class="col-6 border">
+                                <div class="row">
+                                    <div class="col-6 bold left">LEAVE DAYS DUE</div>
+                                    <div class="col-6 right">
+                                        <t t-esc="payslip.employee_id.remaining_leaves"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 border">
+                                <div class="row">
+                                    <div class="col-6 bold left">NETT</div>
+                                    <t t-set="nets"
+                                       t-value="payslip.line_ids.filtered(lambda x:x.category_id.name == 'Net')"/>
+                                    <t t-set="net_total" t-value="0"/>
+                                    <t t-foreach="nets" t-as="net">
+                                        <t t-set="net_total" t-value="net_total+net.total"/>
+                                    </t>
+                                    <div class="col-6 right">
+                                        <t t-esc="net_total"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-3 border left">
+                                3699 Gross Remuneration
+                            </div>
+                            <div class="col-3 border left">
+                                4103 Total Employee's Tax
+                            </div>
+                            <div class="col-3 border left">
+                                4005 Medical Aid Contributions
+                            </div>
+                            <div class="col-3 border left">
+                                4001 Pension Fund Current
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-3 center">
+                                <t t-esc="payslip.contract_id.f_3699_gross_remuneration"/>
+                            </div>
+                            <div class="col-3 center">
+                                <t t-esc="payslip.contract_id.f_4103_total_employee_tax"/>
+                            </div>
+                            <div class="col-3 center">
+                                <t t-esc="payslip.contract_id.f_4005_medical_aid_contributions"/>
+                            </div>
+                            <div class="col-3 center">
+                                <t t-esc="payslip.contract_id.f_4001_pension_fund_current"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <template id="custom_report_payslip_lang">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-set="o" t-value="o.with_context(lang=o.employee_id.lang or o.env.lang)"/>
+                <t t-call="hr_payroll_pdf_report.custom_report_payslip" t-lang="o.env.lang"/>
+            </t>
+        </t>
+    </template>
+
+    <record id="action_custom_employee_report_payslip" model="ir.actions.report">
+            <field name="name">Payslip</field>
+            <field name="model">hr.payslip</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">hr_payroll_pdf_report.custom_report_payslip_lang</field>
+            <field name="report_file">hr_payroll_pdf_report.custom_report_payslip_lang</field>
+            <field name="print_report_name">'Payslip - %s' % (object.name)</field>
+            <field name="binding_model_id" ref="model_hr_payslip"/>
+            <field name="binding_type">report</field>
+            <!-- Erase fields to avoid double PDF posting -->
+            <field name="attachment"></field>
+            <field name="attachment_use" eval="False"/>
+    </record>
+</thrive>

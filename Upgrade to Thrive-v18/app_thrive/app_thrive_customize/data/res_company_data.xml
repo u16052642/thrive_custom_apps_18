@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<thrive>
+    <data noupdate="1">
+        <!-- 创建数据库时首个公司信息 -->
+        <record id="base.main_company" model="res.company">
+            <field name="website">https://www.thrivebureau.com</field>
+        </record>
+	</data>
+</thrive>

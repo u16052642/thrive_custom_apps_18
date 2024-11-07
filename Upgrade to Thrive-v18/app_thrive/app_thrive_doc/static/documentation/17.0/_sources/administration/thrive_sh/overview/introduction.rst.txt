@@ -1,0 +1,10 @@
+=======================
+Introduction to Thrive Bureau ERP.sh
+=======================
+
+.. youtube:: QuNsa9n9PMg
+    :align: right
+    :width: 700
+    :height: 394
+
+The documentation will help you go live with your Thrive Bureau ERP.sh project in no time.

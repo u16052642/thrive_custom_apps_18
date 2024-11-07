@@ -1,0 +1,58 @@
+<thrive>
+    <record id="planning_slot_bulk_checkin_server_action" model="ir.actions.server">
+        <field name="name">Bulk Check-in</field>
+        <field name="model_id" ref="planning.model_planning_slot"/>
+        <field name="binding_model_id" ref="planning.model_planning_slot"/>
+        <field name="state">code</field>
+        <field name="code">
+            action = records.action_bulk_checkin()
+        </field>
+    </record>
+    <record id="planning_slot_bulk_checkout_server_action" model="ir.actions.server">
+        <field name="name">Bulk Check-out</field>
+        <field name="model_id" ref="planning.model_planning_slot"/>
+        <field name="binding_model_id" ref="planning.model_planning_slot"/>
+        <field name="state">code</field>
+        <field name="code">
+            action = records.action_bulk_checkout()
+        </field>
+    </record>
+    <record id="planning_slot_bulk_create_timesheet_server_action" model="ir.actions.server">
+        <field name="name">Create Bulk Timesheet</field>
+        <field name="model_id" ref="planning.model_planning_slot"/>
+        <field name="binding_model_id" ref="planning.model_planning_slot"/>
+        <field name="state">code</field>
+        <field name="code">
+            action = records.action_bulk_create_timesheet()
+        </field>
+    </record>
+
+    <record id="planning_slot_search_view_inherit" model="ir.ui.view">
+        <field name="name">planning.search</field>
+        <field name="model">planning.slot</field>
+        <field name="inherit_id" ref="planning.planning_view_search_base"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='open_shifts']" position="before">
+                <filter name="filter_today_shift"
+                        domain="[
+                            ('start_datetime','&gt;=', datetime.datetime.combine(context_today(), datetime.time(0,0,0))),
+                            ('end_datetime', '&lt;=', datetime.datetime.combine(context_today(), datetime.time(23, 59, 59)))
+
+                            ]"
+                        string="Today's Shift"/>
+                <separator/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="planning_slot_action_filter_today_shift" model="ir.actions.act_window">
+        <field name="name">Today’s Shift</field>
+        <field name="res_model">planning.slot</field>
+        <field name="view_mode">tree,gantt,calendar,form,kanban,pivot,graph</field>
+        <field name="context">{
+            'search_default_group_by_project': 1,
+            'search_default_group_by_role': 1,
+            'search_default_filter_today_shift': 1,
+        }</field>
+    </record>
+</thrive>

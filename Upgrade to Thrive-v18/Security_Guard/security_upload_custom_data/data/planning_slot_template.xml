@@ -1,0 +1,16 @@
+<thrive>
+    <data noupdate="1">
+        <record model="planning.slot.template" id="planning_slot_tmpl_1">
+            <field name="sequence" eval="0"/>
+            <field name="start_time" eval="6"/>
+            <field name="duration" eval="12"/>
+            <field name="role_id" ref="security_upload_custom_data.planning_role_day_shift"/>
+        </record>
+        <record model="planning.slot.template" id="planning_slot_tmpl_2">
+            <field name="sequence" eval="1"/>
+            <field name="start_time" eval="18"/>
+            <field name="duration" eval="12"/>
+            <field name="role_id" ref="security_upload_custom_data.planning_role_night_shift"/>
+        </record>
+    </data>
+</thrive>

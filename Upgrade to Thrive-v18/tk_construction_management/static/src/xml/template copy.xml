@@ -1,0 +1,813 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="constructionDashboard">
+        <section>
+            <div class="container construction_dashboard">
+                <!--Construction-->
+                <div class="row">
+                    <div class="col-md-12 mb-4 mt32 mb16">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-5">
+                                <h2 class="section-header">Construction</h2>
+                            </div>
+                            <div class="col-sm-12 col-md-7">
+                                <form class="form-group d-flex just-end">
+                                    <select id="cons_site" class="form-control tk-form-control col-md-4 mr8">
+                                        <option value="all_site" selected="selected">All Projects</option>
+                                    </select>
+                                    <select id="site_project" class="form-control tk-form-control col-md-4 mr8">
+                                        <option value="all_project" selected="selected">All Sub Projects</option>
+                                    </select>
+                                </form>
+                            </div>
+                        </div>
+                        <hr/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-lg-4 col-sm-6 total-site">
+                        <div class="card card-xl-stretch mb-xl-8">
+                            <!--begin::Body-->
+                            <div class="card-body p-0">
+                                <div class="d-flex flex-stack card-p flex-grow-1">
+                                    <span class="symbol symbol-50px me-2">
+                                        <span class="symbol-label bg-light-info">
+                                            <span class="svg-icon svg-icon-info svg-icon-2x">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                                                     height="24px" viewBox="0 0 24 24" version="1.1">
+                                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                        <rect x="0" y="0" width="24" height="24"/>
+                                                        <path d="M4.5,21 L21.5,21 C22.3284271,21 23,20.3284271 23,19.5 L23,8.5 C23,7.67157288 22.3284271,7 21.5,7 L11,7 L8.43933983,4.43933983 C8.15803526,4.15803526 7.77650439,4 7.37867966,4 L4.5,4 C3.67157288,4 3,4.67157288 3,5.5 L3,19.5 C3,20.3284271 3.67157288,21 4.5,21 Z"
+                                                              fill="#000000" opacity="0.3"/>
+                                                        <path d="M2.5,19 L19.5,19 C20.3284271,19 21,18.3284271 21,17.5 L21,6.5 C21,5.67157288 20.3284271,5 19.5,5 L9,5 L6.43933983,2.43933983 C6.15803526,2.15803526 5.77650439,2 5.37867966,2 L2.5,2 C1.67157288,2 1,2.67157288 1,3.5 L1,17.5 C1,18.3284271 1.67157288,19 2.5,19 Z"
+                                                              fill="#000000"/>
+                                                    </g>
+                                                </svg>                                                <!--end::Svg Icon--></span>
+                                        </span>
+                                    </span>
+                                    <div class="d-flex flex-column text-end">
+                                        <span class="text-dark fw-bolder fs-2" id="total_site">0</span>
+                                        <span class="text-muted fw-bold mt-1">Project</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-sm-6 total-project">
+                        <div class="card card-xl-stretch mb-xl-8">
+                            <!--begin::Body-->
+                            <div class="card-body p-0">
+                                <div class="d-flex flex-stack card-p flex-grow-1">
+                                    <span class="symbol symbol-50px me-2">
+                                        <span class="symbol-label bg-light-warning">
+                                            <span class="svg-icon svg-icon-warning svg-icon-2x">                                                <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo8/dist/../src/media/svg/icons/Layout/Layout-3d.svg-->
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                                                     height="24px" viewBox="0 0 24 24" version="1.1">
+                                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                        <rect x="0" y="0" width="24" height="24"/>
+                                                        <path d="M1.5,5 L4.5,5 C5.32842712,5 6,5.67157288 6,6.5 L6,17.5 C6,18.3284271 5.32842712,19 4.5,19 L1.5,19 C0.671572875,19 1.01453063e-16,18.3284271 0,17.5 L0,6.5 C-1.01453063e-16,5.67157288 0.671572875,5 1.5,5 Z M18.5,5 L22.5,5 C23.3284271,5 24,5.67157288 24,6.5 L24,17.5 C24,18.3284271 23.3284271,19 22.5,19 L18.5,19 C17.6715729,19 17,18.3284271 17,17.5 L17,6.5 C17,5.67157288 17.6715729,5 18.5,5 Z"
+                                                              fill="#000000"/>
+                                                        <rect fill="#000000" opacity="0.3" x="8" y="5" width="7"
+                                                              height="14" rx="1.5"/>
+                                                    </g>
+                                                </svg>                                                <!--end::Svg Icon--></span>
+                                        </span>
+                                    </span>
+                                    <div class="d-flex flex-column text-end">
+                                        <span class="text-dark fw-bolder fs-2" id="total_project">0</span>
+                                        <span class="text-muted fw-bold mt-1">Sub Project</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-sm-6 total-mrq">
+                        <div class="card card-xl-stretch mb-xl-8">
+                            <div class="card-body p-0">
+                                <div class="d-flex flex-stack card-p flex-grow-1">
+                                    <span class="symbol symbol-50px me-2">
+                                        <span class="symbol-label bg-light-progress">
+                                            <span class="svg-icon svg-icon-progress svg-icon-2x">                                                <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo8/dist/../src/media/svg/icons/Home/Home.svg-->
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                                                     height="24px" viewBox="0 0 24 24" version="1.1">
+                                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                        <rect x="0" y="0" width="24" height="24"/>
+                                                        <path d="M3.95709826,8.41510662 L11.47855,3.81866389 C11.7986624,3.62303967 12.2013376,3.62303967 12.52145,3.81866389 L20.0429,8.41510557 C20.6374094,8.77841684 21,9.42493654 21,10.1216692 L21,19.0000642 C21,20.1046337 20.1045695,21.0000642 19,21.0000642 L4.99998155,21.0000673 C3.89541205,21.0000673 2.99998155,20.1046368 2.99998155,19.0000673 L2.99999828,10.1216672 C2.99999935,9.42493561 3.36258984,8.77841732 3.95709826,8.41510662 Z M10,13 C9.44771525,13 9,13.4477153 9,14 L9,17 C9,17.5522847 9.44771525,18 10,18 L14,18 C14.5522847,18 15,17.5522847 15,17 L15,14 C15,13.4477153 14.5522847,13 14,13 L10,13 Z"
+                                                              fill="#000000"/>
+                                                    </g>
+                                                </svg>                                                <!--end::Svg Icon--></span>
+                                        </span>
+                                    </span>
+                                    <div class="d-flex flex-column text-end">
+                                        <span class="text-dark fw-bolder fs-2" id="total_mrq">0</span>
+                                        <span class="text-muted fw-bold mt-1">Material Requisition</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt32">
+                    <div class="col-md-4 col-lg-4 col-sm-6 job-sheet">
+                        <div class="card card-xl-stretch mb-xl-8">
+                            <div class="card-body p-0">
+                                <div class="d-flex flex-stack card-p flex-grow-1">
+                                    <span class="symbol symbol-50px me-2">
+                                        <span class="symbol-label bg-light-general">
+                                            <span class="svg-icon svg-icon-general svg-icon-2x">                                                <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo8/dist/../src/media/svg/icons/Home/Commode2.svg-->
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                        <rect x="0" y="0" width="24" height="24"/>
+                                                        <path d="M5.5,2 L18.5,2 C19.3284271,2 20,2.67157288 20,3.5 L20,6.5 C20,7.32842712 19.3284271,8 18.5,8 L5.5,8 C4.67157288,8 4,7.32842712 4,6.5 L4,3.5 C4,2.67157288 4.67157288,2 5.5,2 Z M11,4 C10.4477153,4 10,4.44771525 10,5 C10,5.55228475 10.4477153,6 11,6 L13,6 C13.5522847,6 14,5.55228475 14,5 C14,4.44771525 13.5522847,4 13,4 L11,4 Z"
+                                                              fill="#000000" opacity="0.3"/>
+                                                        <path d="M5.5,9 L18.5,9 C19.3284271,9 20,9.67157288 20,10.5 L20,13.5 C20,14.3284271 19.3284271,15 18.5,15 L5.5,15 C4.67157288,15 4,14.3284271 4,13.5 L4,10.5 C4,9.67157288 4.67157288,9 5.5,9 Z M11,11 C10.4477153,11 10,11.4477153 10,12 C10,12.5522847 10.4477153,13 11,13 L13,13 C13.5522847,13 14,12.5522847 14,12 C14,11.4477153 13.5522847,11 13,11 L11,11 Z M5.5,16 L18.5,16 C19.3284271,16 20,16.6715729 20,17.5 L20,20.5 C20,21.3284271 19.3284271,22 18.5,22 L5.5,22 C4.67157288,22 4,21.3284271 4,20.5 L4,17.5 C4,16.6715729 4.67157288,16 5.5,16 Z M11,18 C10.4477153,18 10,18.4477153 10,19 C10,19.5522847 10.4477153,20 11,20 L13,20 C13.5522847,20 14,19.5522847 14,19 C14,18.4477153 13.5522847,18 13,18 L11,18 Z"
+                                                              fill="#000000"/>
+                                                    </g>
+                                                </svg>
+                                            </span>
+                                        </span>
+                                    </span>
+                                    <div class="d-flex flex-column text-end">
+                                        <span class="text-dark fw-bolder fs-2" id="job_sheet_count">0</span>
+                                        <span class="text-muted fw-bold mt-1">Project Phase(WBS)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-sm-6 job-order">
+                        <div class="card card-xl-stretch mb-xl-8">
+                            <div class="card-body p-0">
+                                <div class="d-flex flex-stack card-p flex-grow-1">
+                                    <span class="symbol symbol-50px me-2">
+                                        <span class="symbol-label bg-light-general">
+                                            <span class="svg-icon svg-icon-general svg-icon-muted svg-icon-2hx">
+                                                <svg width="16" height="15" viewBox="0 0 16 15" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <rect y="6" width="16" height="3" rx="1.5" fill="currentColor"/>
+                                                    <rect opacity="0.3" y="12" width="8" height="3" rx="1.5"
+                                                          fill="currentColor"/>
+                                                    <rect opacity="0.3" width="12" height="3" rx="1.5"
+                                                          fill="currentColor"/>
+                                                </svg>
+                                            </span>
+                                        </span>
+                                    </span>
+                                    <div class="d-flex flex-column text-end">
+                                        <span class="text-dark fw-bolder fs-2" id="job_order_count">0</span>
+                                        <span class="text-muted fw-bold mt-1">Work Order</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Project-->
+                <div class="row">
+                    <div class="col-md-12 mb-4 mt32 mb16">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-5">
+                                <h2 class="section-header">Sub Project Status</h2>
+                            </div>
+                        </div>
+                        <hr/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-lg-4 col-sm-6 project-planning">
+                        <div class="card card-xl-stretch mb-xl-8">
+                            <!--begin::Body-->
+                            <div class="card-body p-0">
+                                <div class="d-flex flex-stack card-p flex-grow-1">
+                                    <span class="symbol symbol-50px me-2">
+                                        <span class="symbol-label bg-light-info">
+                                            <span class="svg-icon svg-icon-info svg-icon-muted svg-icon-2hx">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M6 7H3C2.4 7 2 6.6 2 6V3C2 2.4 2.4 2 3 2H6C6.6 2 7 2.4 7 3V6C7 6.6 6.6 7 6 7Z"
+                                                          fill="currentColor"/>
+                                                    <path opacity="0.3"
+                                                          d="M13 7H10C9.4 7 9 6.6 9 6V3C9 2.4 9.4 2 10 2H13C13.6 2 14 2.4 14 3V6C14 6.6 13.6 7 13 7ZM21 6V3C21 2.4 20.6 2 20 2H17C16.4 2 16 2.4 16 3V6C16 6.6 16.4 7 17 7H20C20.6 7 21 6.6 21 6ZM7 13V10C7 9.4 6.6 9 6 9H3C2.4 9 2 9.4 2 10V13C2 13.6 2.4 14 3 14H6C6.6 14 7 13.6 7 13ZM14 13V10C14 9.4 13.6 9 13 9H10C9.4 9 9 9.4 9 10V13C9 13.6 9.4 14 10 14H13C13.6 14 14 13.6 14 13ZM21 13V10C21 9.4 20.6 9 20 9H17C16.4 9 16 9.4 16 10V13C16 13.6 16.4 14 17 14H20C20.6 14 21 13.6 21 13ZM7 20V17C7 16.4 6.6 16 6 16H3C2.4 16 2 16.4 2 17V20C2 20.6 2.4 21 3 21H6C6.6 21 7 20.6 7 20ZM14 20V17C14 16.4 13.6 16 13 16H10C9.4 16 9 16.4 9 17V20C9 20.6 9.4 21 10 21H13C13.6 21 14 20.6 14 20ZM21 20V17C21 16.4 20.6 16 20 16H17C16.4 16 16 16.4 16 17V20C16 20.6 16.4 21 17 21H20C20.6 21 21 20.6 21 20Z"
+                                                          fill="currentColor"/>
+                                                </svg>
+                                            </span>
+                                        </span>
+                                    </span>
+                                    <div class="d-flex flex-column text-end">
+                                        <span class="text-dark fw-bolder fs-2" id="project_planning">0</span>
+                                        <span class="text-muted fw-bold mt-1">Planning</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-sm-6 project-procurement">
+                        <div class="card card-xl-stretch mb-xl-8">
+                            <!--begin::Body-->
+                            <div class="card-body p-0">
+                                <div class="d-flex flex-stack card-p flex-grow-1">
+                                    <span class="symbol symbol-50px me-2">
+                                        <span class="symbol-label bg-light-general">
+                                            <span class="svg-icon svg-icon-general svg-icon-muted svg-icon-2hx">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M17.5 11H6.5C4 11 2 9 2 6.5C2 4 4 2 6.5 2H17.5C20 2 22 4 22 6.5C22 9 20 11 17.5 11ZM15 6.5C15 7.9 16.1 9 17.5 9C18.9 9 20 7.9 20 6.5C20 5.1 18.9 4 17.5 4C16.1 4 15 5.1 15 6.5Z"
+                                                          fill="currentColor"/>
+                                                    <path opacity="0.3"
+                                                          d="M17.5 22H6.5C4 22 2 20 2 17.5C2 15 4 13 6.5 13H17.5C20 13 22 15 22 17.5C22 20 20 22 17.5 22ZM4 17.5C4 18.9 5.1 20 6.5 20C7.9 20 9 18.9 9 17.5C9 16.1 7.9 15 6.5 15C5.1 15 4 16.1 4 17.5Z"
+                                                          fill="currentColor"/>
+                                                </svg>
+                                            </span>
+                                        </span>
+                                    </span>
+                                    <div class="d-flex flex-column text-end">
+                                        <span class="text-dark fw-bolder fs-2" id="project_procurement">0</span>
+                                        <span class="text-muted fw-bold mt-1">Procurement</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-sm-6 project-construction">
+                        <div class="card card-xl-stretch mb-xl-8">
+                            <div class="card-body p-0">
+                                <div class="d-flex flex-stack card-p flex-grow-1">
+                                    <span class="symbol symbol-50px me-2">
+                                        <span class="symbol-label bg-light-progress">
+                                            <span class="svg-icon svg-icon-danger svg-icon-muted svg-icon-2hx">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M18.0002 22H6.00019C5.20019 22 4.8002 21.1 5.2002 20.4L12.0002 12L18.8002 20.4C19.3002 21.1 18.8002 22 18.0002 22Z"
+                                                          fill="currentColor"/>
+                                                    <path opacity="0.3"
+                                                          d="M18.8002 3.6L12.0002 12L5.20019 3.6C4.70019 3 5.20018 2 6.00018 2H18.0002C18.8002 2 19.3002 2.9 18.8002 3.6Z"
+                                                          fill="currentColor"/>
+                                                </svg>
+                                            </span>
+                                        </span>
+                                    </span>
+                                    <div class="d-flex flex-column text-end">
+                                        <span class="text-dark fw-bolder fs-2" id="project_construction">0</span>
+                                        <span class="text-muted fw-bold mt-1">Construction</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt32">
+                    <div class="col-md-4 col-lg-4 col-sm-6 project-handover">
+                        <div class="card card-xl-stretch mb-xl-8">
+                            <div class="card-body p-0">
+                                <div class="d-flex flex-stack card-p flex-grow-1">
+                                    <span class="symbol symbol-50px me-2">
+                                        <span class="symbol-label bg-light-info">
+                                            <span class="svg-icon svg-icon-info svg-icon-muted svg-icon-2hx">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M12 7.2L16.8 12L12 16.8L7.19999 12L12 7.2ZM12 2C11.7 2 11.5 2.1 11.3 2.3L2.3 11.3C1.9 11.7 1.9 12.3 2.3 12.7L11.3 21.7C11.5 21.9 11.8 22 12 22C12.2 22 12.5 21.9 12.7 21.7L21.7 12.7C22.1 12.3 22.1 11.7 21.7 11.3L12.7 2.3C12.5 2.1 12.3 2 12 2Z"
+                                                          fill="currentColor"/>
+                                                </svg>
+                                            </span>
+                                        </span>
+                                    </span>
+                                    <div class="d-flex flex-column text-end">
+                                        <span class="text-dark fw-bolder fs-2" id="project_handover">0</span>
+                                        <span class="text-muted fw-bold mt-1">Handover</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Material Requisition-->
+                <div class="row mt32">
+                    <div class="col-md-12 mb-4 mt32 mb16">
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-5">
+                                <h2 class="section-header">Material Requisition</h2>
+                            </div>
+                        </div>
+                        <hr/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-lg-4 col-sm-6 mr-draft">
+                        <div class="card card-xl-stretch mb-xl-8">
+                            <!--begin::Body-->
+                            <div class="card-body p-0">
+                                <div class="d-flex flex-stack card-p flex-grow-1">
+                                    <span class="symbol symbol-50px me-2">
+                                        <span class="symbol-label bg-light-info">
+                                            <span class="svg-icon svg-icon-info svg-icon-2x">                                                <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo8/dist/../src/media/svg/icons/General/Other1.svg-->
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                                                     height="24px" viewBox="0 0 24 24" version="1.1">
+                                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                        <rect x="0" y="0" width="24" height="24"/>
+                                                        <circle fill="#000000" cx="12" cy="5" r="2"/>
+                                                        <circle fill="#000000" cx="12" cy="12" r="2"/>
+                                                        <circle fill="#000000" cx="12" cy="19" r="2"/>
+                                                    </g>
+                                                </svg>                                                <!--end::Svg Icon--></span>
+                                        </span>
+                                    </span>
+                                    <div class="d-flex flex-column text-end">
+                                        <span class="text-dark fw-bolder fs-2" id="mr_draft">0</span>
+                                        <span class="text-muted fw-bold mt-1">Draft</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-sm-6 mr-waiting-approval">
+                        <div class="card card-xl-stretch mb-xl-8">
+                            <!--begin::Body-->
+                            <div class="card-body p-0">
+                                <div class="d-flex flex-stack card-p flex-grow-1">
+                                    <span class="symbol symbol-50px me-2">
+                                        <span class="symbol-label bg-light-general">
+                                            <span class="svg-icon svg-icon-general svg-icon-muted svg-icon-2hx">
+                                                <svg width="14" height="21" viewBox="0 0 14 21" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <path opacity="0.3"
+                                                          d="M12 6.20001V1.20001H2V6.20001C2 6.50001 2.1 6.70001 2.3 6.90001L5.6 10.2L2.3 13.5C2.1 13.7 2 13.9 2 14.2V19.2H12V14.2C12 13.9 11.9 13.7 11.7 13.5L8.4 10.2L11.7 6.90001C11.9 6.70001 12 6.50001 12 6.20001Z"
+                                                          fill="currentColor"/>
+                                                    <path d="M13 2.20001H1C0.4 2.20001 0 1.80001 0 1.20001C0 0.600012 0.4 0.200012 1 0.200012H13C13.6 0.200012 14 0.600012 14 1.20001C14 1.80001 13.6 2.20001 13 2.20001ZM13 18.2H10V16.2L7.7 13.9C7.3 13.5 6.7 13.5 6.3 13.9L4 16.2V18.2H1C0.4 18.2 0 18.6 0 19.2C0 19.8 0.4 20.2 1 20.2H13C13.6 20.2 14 19.8 14 19.2C14 18.6 13.6 18.2 13 18.2ZM4.4 6.20001L6.3 8.10001C6.7 8.50001 7.3 8.50001 7.7 8.10001L9.6 6.20001H4.4Z"
+                                                          fill="currentColor"/>
+                                                </svg>
+                                            </span>
+                                        </span>
+                                    </span>
+                                    <div class="d-flex flex-column text-end">
+                                        <span class="text-dark fw-bolder fs-2" id="mr_waiting_approval">0</span>
+                                        <span class="text-muted fw-bold mt-1">Waiting Approvals</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end::Body-->
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-sm-6 mr-approved">
+                        <div class="card card-xl-stretch mb-xl-8">
+                            <!--begin::Body-->
+                            <div class="card-body p-0">
+                                <div class="d-flex flex-stack card-p flex-grow-1">
+                                    <span class="symbol symbol-50px me-2">
+                                        <span class="symbol-label bg-light-warning">
+                                            <span class="svg-icon svg-icon-danger svg-icon-2x">                                                <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo8/dist/../src/media/svg/icons/Navigation/Waiting.svg-->
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                                                     height="24px" viewBox="0 0 24 24" version="1.1">
+                                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                        <rect x="0" y="0" width="24" height="24"/>
+                                                        <path d="M19.5,10.5 L21,10.5 C21.8284271,10.5 22.5,11.1715729 22.5,12 C22.5,12.8284271 21.8284271,13.5 21,13.5 L19.5,13.5 C18.6715729,13.5 18,12.8284271 18,12 C18,11.1715729 18.6715729,10.5 19.5,10.5 Z M16.0606602,5.87132034 L17.1213203,4.81066017 C17.7071068,4.22487373 18.6568542,4.22487373 19.2426407,4.81066017 C19.8284271,5.39644661 19.8284271,6.34619408 19.2426407,6.93198052 L18.1819805,7.99264069 C17.5961941,8.57842712 16.6464466,8.57842712 16.0606602,7.99264069 C15.4748737,7.40685425 15.4748737,6.45710678 16.0606602,5.87132034 Z M16.0606602,18.1819805 C15.4748737,17.5961941 15.4748737,16.6464466 16.0606602,16.0606602 C16.6464466,15.4748737 17.5961941,15.4748737 18.1819805,16.0606602 L19.2426407,17.1213203 C19.8284271,17.7071068 19.8284271,18.6568542 19.2426407,19.2426407 C18.6568542,19.8284271 17.7071068,19.8284271 17.1213203,19.2426407 L16.0606602,18.1819805 Z M3,10.5 L4.5,10.5 C5.32842712,10.5 6,11.1715729 6,12 C6,12.8284271 5.32842712,13.5 4.5,13.5 L3,13.5 C2.17157288,13.5 1.5,12.8284271 1.5,12 C1.5,11.1715729 2.17157288,10.5 3,10.5 Z M12,1.5 C12.8284271,1.5 13.5,2.17157288 13.5,3 L13.5,4.5 C13.5,5.32842712 12.8284271,6 12,6 C11.1715729,6 10.5,5.32842712 10.5,4.5 L10.5,3 C10.5,2.17157288 11.1715729,1.5 12,1.5 Z M12,18 C12.8284271,18 13.5,18.6715729 13.5,19.5 L13.5,21 C13.5,21.8284271 12.8284271,22.5 12,22.5 C11.1715729,22.5 10.5,21.8284271 10.5,21 L10.5,19.5 C10.5,18.6715729 11.1715729,18 12,18 Z M4.81066017,4.81066017 C5.39644661,4.22487373 6.34619408,4.22487373 6.93198052,4.81066017 L7.99264069,5.87132034 C8.57842712,6.45710678 8.57842712,7.40685425 7.99264069,7.99264069 C7.40685425,8.57842712 6.45710678,8.57842712 5.87132034,7.99264069 L4.81066017,6.93198052 C4.22487373,6.34619408 4.22487373,5.39644661 4.81066017,4.81066017 Z M4.81066017,19.2426407 C4.22487373,18.6568542 4.22487373,17.7071068 4.81066017,17.1213203 L5.87132034,16.0606602 C6.45710678,15.4748737 7.40685425,15.4748737 7.99264069,16.0606602 C8.57842712,16.6464466 8.57842712,17.5961941 7.99264069,18.1819805 L6.93198052,19.2426407 C6.34619408,19.8284271 5.39644661,19.8284271 4.81066017,19.2426407 Z"
+                                                              fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+                                                    </g>
+                                                </svg>                                                <!--end::Svg Icon--></span>
+                                        </span>
+                                    </span>
+                                    <div class="d-flex flex-column text-end">
+                                        <span class="text-dark fw-bolder fs-2" id="mr_approved">0</span>
+                                        <span class="text-muted fw-bold mt-1">In Progress</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end::Body-->
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt32">
+                    <div class="col-md-4 col-lg-4 col-sm-6 mr-ready-delivery">
+                        <div class="card card-xl-stretch mb-xl-8">
+                            <!--begin::Body-->
+                            <div class="card-body p-0">
+                                <div class="d-flex flex-stack card-p flex-grow-1">
+                                    <span class="symbol symbol-50px me-2">
+                                        <span class="symbol-label bg-light-warning">
+                                            <span class="svg-icon svg-icon-info svg-icon-muted svg-icon-2hx">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M20 8H16C15.4 8 15 8.4 15 9V16H10V17C10 17.6 10.4 18 11 18H16C16 16.9 16.9 16 18 16C19.1 16 20 16.9 20 18H21C21.6 18 22 17.6 22 17V13L20 8Z"
+                                                          fill="currentColor"/>
+                                                    <path opacity="0.3"
+                                                          d="M20 18C20 19.1 19.1 20 18 20C16.9 20 16 19.1 16 18C16 16.9 16.9 16 18 16C19.1 16 20 16.9 20 18ZM15 4C15 3.4 14.6 3 14 3H3C2.4 3 2 3.4 2 4V13C2 13.6 2.4 14 3 14H15V4ZM6 16C4.9 16 4 16.9 4 18C4 19.1 4.9 20 6 20C7.1 20 8 19.1 8 18C8 16.9 7.1 16 6 16Z"
+                                                          fill="currentColor"/>
+                                                </svg>
+                                            </span>
+                                        </span>
+                                    </span>
+                                    <div class="d-flex flex-column text-end">
+                                        <span class="text-dark fw-bolder fs-2" id="mr_ready_delivery">0</span>
+                                        <span class="text-muted fw-bold mt-1">Ready for Delivery</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-sm-6 mr-material-arrive">
+                        <div class="card card-xl-stretch mb-xl-8">
+                            <!--begin::Body-->
+                            <div class="card-body p-0">
+                                <div class="d-flex flex-stack card-p flex-grow-1">
+                                    <span class="symbol symbol-50px me-2">
+                                        <span class="symbol-label bg-light-success">
+                                            <span class="svg-icon svg-icon-success svg-icon-2x">                                                <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo8/dist/../src/media/svg/icons/Layout/Layout-top-panel-5.svg-->
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                                                     height="24px" viewBox="0 0 24 24" version="1.1">
+                                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                        <rect x="0" y="0" width="24" height="24"/>
+                                                        <path d="M3,4 L20,4 C20.5522847,4 21,4.44771525 21,5 L21,7 C21,7.55228475 20.5522847,8 20,8 L3,8 C2.44771525,8 2,7.55228475 2,7 L2,5 C2,4.44771525 2.44771525,4 3,4 Z M10,10 L20,10 C20.5522847,10 21,10.4477153 21,11 L21,13 C21,13.5522847 20.5522847,14 20,14 L10,14 C9.44771525,14 9,13.5522847 9,13 L9,11 C9,10.4477153 9.44771525,10 10,10 Z M10,16 L20,16 C20.5522847,16 21,16.4477153 21,17 L21,19 C21,19.5522847 20.5522847,20 20,20 L10,20 C9.44771525,20 9,19.5522847 9,19 L9,17 C9,16.4477153 9.44771525,16 10,16 Z"
+                                                              fill="#000000"/>
+                                                        <rect fill="#000000" opacity="0.3" x="2" y="10" width="5"
+                                                              height="10" rx="1"/>
+                                                    </g>
+                                                </svg>                                                <!--end::Svg Icon--></span>
+                                        </span>
+                                    </span>
+                                    <div class="d-flex flex-column text-end">
+                                        <span class="text-dark fw-bolder fs-2" id="mr_material_arrive">0</span>
+                                        <span class="text-muted fw-bold mt-1">Material Arrive</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end::Body-->
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-sm-6 mr-material-internal-transfer">
+                        <div class="card card-xl-stretch mb-xl-8">
+                            <!--begin::Body-->
+                            <div class="card-body p-0">
+                                <div class="d-flex flex-stack card-p flex-grow-1">
+                                    <span class="symbol symbol-50px me-2">
+                                        <span class="symbol-label bg-light-danger">
+                                            <span class="svg-icon svg-icon-muted svg-icon-success svg-icon-2hx">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M8.7 4.19995L4 6.30005V18.8999L8.7 16.8V19L3.1 21.5C2.6 21.7 2 21.4 2 20.8V6C2 5.4 2.3 4.89995 2.9 4.69995L8.7 2.09998V4.19995Z"
+                                                          fill="currentColor"/>
+                                                    <path d="M15.3 19.8L20 17.6999V5.09992L15.3 7.19989V4.99994L20.9 2.49994C21.4 2.29994 22 2.59989 22 3.19989V17.9999C22 18.5999 21.7 19.1 21.1 19.3L15.3 21.8998V19.8Z"
+                                                          fill="currentColor"/>
+                                                    <path opacity="0.3"
+                                                          d="M15.3 7.19995L20 5.09998V17.7L15.3 19.8V7.19995Z"
+                                                          fill="currentColor"/>
+                                                    <path opacity="0.3"
+                                                          d="M8.70001 4.19995V2L15.4 5V7.19995L8.70001 4.19995ZM8.70001 16.8V19L15.4 22V19.8L8.70001 16.8Z"
+                                                          fill="currentColor"/>
+                                                    <path opacity="0.3"
+                                                          d="M8.7 16.8L4 18.8999V6.30005L8.7 4.19995V16.8Z"
+                                                          fill="currentColor"/>
+                                                </svg>
+                                            </span>
+                                        </span>
+                                    </span>
+                                    <div class="d-flex flex-column text-end">
+                                        <span class="text-dark fw-bolder fs-2" id="mr_internal_transfer">0</span>
+                                        <span class="text-muted fw-bold mt-1">Internal Transfer</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end::Body-->
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt32">
+                    <div class="col-md-4 col-lg-4 col-sm-6 mr-back-order">
+                        <div class="card card-xl-stretch mb-xl-8">
+                            <!--begin::Body-->
+                            <div class="card-body p-0">
+                                <div class="d-flex flex-stack card-p flex-grow-1">
+                                    <span class="symbol symbol-50px me-2">
+                                        <span class="symbol-label bg-light-info">
+                                            <span class="svg-icon svg-icon-info svg-icon-muted svg-icon-2hx">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <rect opacity="0.3" x="8.5" y="11" width="12" height="2" rx="1"
+                                                          fill="currentColor"/>
+                                                    <path d="M10.3687 11.6927L12.1244 10.2297C12.5946 9.83785 12.6268 9.12683 12.194 8.69401C11.8043 8.3043 11.1784 8.28591 10.7664 8.65206L7.84084 11.2526C7.39332 11.6504 7.39332 12.3496 7.84084 12.7474L10.7664 15.3479C11.1784 15.7141 11.8043 15.6957 12.194 15.306C12.6268 14.8732 12.5946 14.1621 12.1244 13.7703L10.3687 12.3073C10.1768 12.1474 10.1768 11.8526 10.3687 11.6927Z"
+                                                          fill="currentColor"/>
+                                                    <path opacity="0.5"
+                                                          d="M16 5V6C16 6.55228 15.5523 7 15 7C14.4477 7 14 6.55228 14 6C14 5.44772 13.5523 5 13 5H6C5.44771 5 5 5.44772 5 6V18C5 18.5523 5.44771 19 6 19H13C13.5523 19 14 18.5523 14 18C14 17.4477 14.4477 17 15 17C15.5523 17 16 17.4477 16 18V19C16 20.1046 15.1046 21 14 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3H14C15.1046 3 16 3.89543 16 5Z"
+                                                          fill="currentColor"/>
+                                                </svg>
+                                            </span>
+                                        </span>
+                                    </span>
+                                    <div class="d-flex flex-column text-end">
+                                        <span class="text-dark fw-bolder fs-2" id="back_order">0</span>
+                                        <span class="text-muted fw-bold mt-1">Back Order</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Internal Transfer-->
+                <div class="row mt32">
+                    <div class="col-md-12 mb-4 mt32 mb16">
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-5">
+                                <h2 class="section-header">Internal Transfer</h2>
+                            </div>
+                        </div>
+                        <hr/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-lg-4 col-sm-6 it-draft">
+                        <div class="card card-xl-stretch mb-xl-8">
+                            <!--begin::Body-->
+                            <div class="card-body p-0">
+                                <div class="d-flex flex-stack card-p flex-grow-1">
+                                    <span class="symbol symbol-50px me-2">
+                                        <span class="symbol-label bg-light-info">
+                                            <span class="svg-icon svg-icon-info svg-icon-2x">                                                <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo8/dist/../src/media/svg/icons/General/Other1.svg-->
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                                                     height="24px" viewBox="0 0 24 24" version="1.1">
+                                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                        <rect x="0" y="0" width="24" height="24"/>
+                                                        <circle fill="#000000" cx="12" cy="5" r="2"/>
+                                                        <circle fill="#000000" cx="12" cy="12" r="2"/>
+                                                        <circle fill="#000000" cx="12" cy="19" r="2"/>
+                                                    </g>
+                                                </svg>                                                <!--end::Svg Icon--></span>
+                                        </span>
+                                    </span>
+                                    <div class="d-flex flex-column text-end">
+                                        <span class="text-dark fw-bolder fs-2" id="it_draft">0</span>
+                                        <span class="text-muted fw-bold mt-1">Draft</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-sm-6 it-in-progress">
+                        <div class="card card-xl-stretch mb-xl-8">
+                            <!--begin::Body-->
+                            <div class="card-body p-0">
+                                <div class="d-flex flex-stack card-p flex-grow-1">
+                                    <span class="symbol symbol-50px me-2">
+                                        <span class="symbol-label bg-light-general">
+                                            <span class="svg-icon svg-icon-general svg-icon-muted svg-icon-2hx">
+                                                <svg width="14" height="21" viewBox="0 0 14 21" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <path opacity="0.3"
+                                                          d="M12 6.20001V1.20001H2V6.20001C2 6.50001 2.1 6.70001 2.3 6.90001L5.6 10.2L2.3 13.5C2.1 13.7 2 13.9 2 14.2V19.2H12V14.2C12 13.9 11.9 13.7 11.7 13.5L8.4 10.2L11.7 6.90001C11.9 6.70001 12 6.50001 12 6.20001Z"
+                                                          fill="currentColor"/>
+                                                    <path d="M13 2.20001H1C0.4 2.20001 0 1.80001 0 1.20001C0 0.600012 0.4 0.200012 1 0.200012H13C13.6 0.200012 14 0.600012 14 1.20001C14 1.80001 13.6 2.20001 13 2.20001ZM13 18.2H10V16.2L7.7 13.9C7.3 13.5 6.7 13.5 6.3 13.9L4 16.2V18.2H1C0.4 18.2 0 18.6 0 19.2C0 19.8 0.4 20.2 1 20.2H13C13.6 20.2 14 19.8 14 19.2C14 18.6 13.6 18.2 13 18.2ZM4.4 6.20001L6.3 8.10001C6.7 8.50001 7.3 8.50001 7.7 8.10001L9.6 6.20001H4.4Z"
+                                                          fill="currentColor"/>
+                                                </svg>
+                                            </span>
+                                        </span>
+                                    </span>
+                                    <div class="d-flex flex-column text-end">
+                                        <span class="text-dark fw-bolder fs-2" id="it_in_progress">0</span>
+                                        <span class="text-muted fw-bold mt-1">In Progress</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end::Body-->
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-sm-6 it-done">
+                        <div class="card card-xl-stretch mb-xl-8">
+                            <!--begin::Body-->
+                            <div class="card-body p-0">
+                                <div class="d-flex flex-stack card-p flex-grow-1">
+                                    <span class="symbol symbol-50px me-2">
+                                        <span class="symbol-label bg-light-success">
+                                            <span class="svg-icon svg-icon-muted svg-icon-success svg-icon-2hx">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <path opacity="0.3"
+                                                          d="M10.3 14.3L11 13.6L7.70002 10.3C7.30002 9.9 6.7 9.9 6.3 10.3C5.9 10.7 5.9 11.3 6.3 11.7L10.3 15.7C9.9 15.3 9.9 14.7 10.3 14.3Z"
+                                                          fill="currentColor"/>
+                                                    <path d="M22 12C22 17.5 17.5 22 12 22C6.5 22 2 17.5 2 12C2 6.5 6.5 2 12 2C17.5 2 22 6.5 22 12ZM11.7 15.7L17.7 9.70001C18.1 9.30001 18.1 8.69999 17.7 8.29999C17.3 7.89999 16.7 7.89999 16.3 8.29999L11 13.6L7.70001 10.3C7.30001 9.89999 6.69999 9.89999 6.29999 10.3C5.89999 10.7 5.89999 11.3 6.29999 11.7L10.3 15.7C10.5 15.9 10.8 16 11 16C11.2 16 11.5 15.9 11.7 15.7Z"
+                                                          fill="currentColor"/>
+                                                </svg>
+                                            </span>
+                                        </span>
+                                    </span>
+                                    <div class="d-flex flex-column text-end">
+                                        <span class="text-dark fw-bolder fs-2" id="it_done">0</span>
+                                        <span class="text-muted fw-bold mt-1">Done</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end::Body-->
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt32 mb32">
+                    <div class="col-md-4 col-lg-4 col-sm-6 it-forward-transfer">
+                        <div class="card card-xl-stretch mb-xl-8">
+                            <!--begin::Body-->
+                            <div class="card-body p-0">
+                                <div class="d-flex flex-stack card-p flex-grow-1">
+                                    <span class="symbol symbol-50px me-2">
+                                        <span class="symbol-label bg-light-general">
+                                            <span class="svg-icon svg-icon-general svg-icon-muted svg-icon-2hx">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <rect opacity="0.3" width="12" height="2" rx="1"
+                                                          transform="matrix(-1 0 0 1 15.5 11)" fill="currentColor"/>
+                                                    <path d="M13.6313 11.6927L11.8756 10.2297C11.4054 9.83785 11.3732 9.12683 11.806 8.69401C12.1957 8.3043 12.8216 8.28591 13.2336 8.65206L16.1592 11.2526C16.6067 11.6504 16.6067 12.3496 16.1592 12.7474L13.2336 15.3479C12.8216 15.7141 12.1957 15.6957 11.806 15.306C11.3732 14.8732 11.4054 14.1621 11.8756 13.7703L13.6313 12.3073C13.8232 12.1474 13.8232 11.8526 13.6313 11.6927Z"
+                                                          fill="currentColor"/>
+                                                    <path d="M8 5V6C8 6.55228 8.44772 7 9 7C9.55228 7 10 6.55228 10 6C10 5.44772 10.4477 5 11 5H18C18.5523 5 19 5.44772 19 6V18C19 18.5523 18.5523 19 18 19H11C10.4477 19 10 18.5523 10 18C10 17.4477 9.55228 17 9 17C8.44772 17 8 17.4477 8 18V19C8 20.1046 8.89543 21 10 21H19C20.1046 21 21 20.1046 21 19V5C21 3.89543 20.1046 3 19 3H10C8.89543 3 8 3.89543 8 5Z"
+                                                          fill="currentColor"/>
+                                                </svg>
+                                            </span>
+                                        </span>
+                                    </span>
+                                    <div class="d-flex flex-column text-end">
+                                        <span class="text-dark fw-bolder fs-2" id="forward_transfer">0</span>
+                                        <span class="text-muted fw-bold mt-1">Forward Transfer</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Purchase Order-->
+                <div class="row mt32">
+                    <div class="col-md-12 mb-4 mt32 mb16">
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-5">
+                                <h2 class="section-header">Purchase Orders</h2>
+                            </div>
+                        </div>
+                        <hr/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-lg-4 col-sm-6 equip-po">
+                        <div class="card card-xl-stretch mb-xl-8">
+                            <!--begin::Body-->
+                            <div class="card-body p-0">
+                                <div class="d-flex flex-stack card-p flex-grow-1">
+                                    <span class="symbol symbol-50px me-2">
+                                        <span class="symbol-label bg-light-info">
+                                            <span class="svg-icon svg-icon-info svg-icon-muted svg-icon-2hx">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <path opacity="0.3"
+                                                          d="M20.0381 4V10C20.0381 10.6 19.6381 11 19.0381 11H17.0381C16.4381 11 16.0381 10.6 16.0381 10V4C16.0381 2.9 16.9381 2 18.0381 2C19.1381 2 20.0381 2.9 20.0381 4ZM9.73808 18.9C10.7381 18.5 11.2381 17.3 10.8381 16.3L5.83808 3.29999C5.43808 2.29999 4.23808 1.80001 3.23808 2.20001C2.23808 2.60001 1.73809 3.79999 2.13809 4.79999L7.13809 17.8C7.43809 18.6 8.23808 19.1 9.03808 19.1C9.23808 19 9.53808 19 9.73808 18.9ZM19.0381 18H17.0381V20H19.0381V18Z"
+                                                          fill="currentColor"/>
+                                                    <path d="M18.0381 6H4.03809C2.93809 6 2.03809 5.1 2.03809 4C2.03809 2.9 2.93809 2 4.03809 2H18.0381C19.1381 2 20.0381 2.9 20.0381 4C20.0381 5.1 19.1381 6 18.0381 6ZM4.03809 3C3.43809 3 3.03809 3.4 3.03809 4C3.03809 4.6 3.43809 5 4.03809 5C4.63809 5 5.03809 4.6 5.03809 4C5.03809 3.4 4.63809 3 4.03809 3ZM18.0381 3C17.4381 3 17.0381 3.4 17.0381 4C17.0381 4.6 17.4381 5 18.0381 5C18.6381 5 19.0381 4.6 19.0381 4C19.0381 3.4 18.6381 3 18.0381 3ZM12.0381 17V22H6.03809V17C6.03809 15.3 7.33809 14 9.03809 14C10.7381 14 12.0381 15.3 12.0381 17ZM9.03809 15.5C8.23809 15.5 7.53809 16.2 7.53809 17C7.53809 17.8 8.23809 18.5 9.03809 18.5C9.83809 18.5 10.5381 17.8 10.5381 17C10.5381 16.2 9.83809 15.5 9.03809 15.5ZM15.0381 15H17.0381V13H16.0381V8L14.0381 10V14C14.0381 14.6 14.4381 15 15.0381 15ZM19.0381 15H21.0381C21.6381 15 22.0381 14.6 22.0381 14V10L20.0381 8V13H19.0381V15ZM21.0381 20H15.0381V22H21.0381V20Z"
+                                                          fill="currentColor"/>
+                                                </svg>
+                                            </span>
+                                        </span>
+                                    </span>
+                                    <div class="d-flex flex-column text-end">
+                                        <span class="text-dark fw-bolder fs-2" id="equip_po">0</span>
+                                        <span class="text-muted fw-bold mt-1">Equipment</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-sm-6 labour-po">
+                        <div class="card card-xl-stretch mb-xl-8">
+                            <!--begin::Body-->
+                            <div class="card-body p-0">
+                                <div class="d-flex flex-stack card-p flex-grow-1">
+                                    <span class="symbol symbol-50px me-2">
+                                        <span class="symbol-label bg-light-general">
+                                            <span class="svg-icon svg-icon-general svg-icon-muted svg-icon-2hx">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M6.28548 15.0861C7.34369 13.1814 9.35142 12 11.5304 12H12.4696C14.6486 12 16.6563 13.1814 17.7145 15.0861L19.3493 18.0287C20.0899 19.3618 19.1259 21 17.601 21H6.39903C4.87406 21 3.91012 19.3618 4.65071 18.0287L6.28548 15.0861Z"
+                                                          fill="currentColor"/>
+                                                    <rect opacity="0.3" x="8" y="3" width="8" height="8" rx="4"
+                                                          fill="currentColor"/>
+                                                </svg>
+                                            </span>
+                                        </span>
+                                    </span>
+                                    <div class="d-flex flex-column text-end">
+                                        <span class="text-dark fw-bolder fs-2" id="labour_po">0</span>
+                                        <span class="text-muted fw-bold mt-1">Labour</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end::Body-->
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-sm-6 overhead-po">
+                        <div class="card card-xl-stretch mb-xl-8">
+                            <!--begin::Body-->
+                            <div class="card-body p-0">
+                                <div class="d-flex flex-stack card-p flex-grow-1">
+                                    <span class="symbol symbol-50px me-2">
+                                        <span class="symbol-label bg-light-general">
+                                            <span class="svg-icon svg-icon-info svg-icon-muted svg-icon-2hx">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <path opacity="0.3"
+                                                          d="M11 6.5C11 9 9 11 6.5 11C4 11 2 9 2 6.5C2 4 4 2 6.5 2C9 2 11 4 11 6.5ZM17.5 2C15 2 13 4 13 6.5C13 9 15 11 17.5 11C20 11 22 9 22 6.5C22 4 20 2 17.5 2ZM6.5 13C4 13 2 15 2 17.5C2 20 4 22 6.5 22C9 22 11 20 11 17.5C11 15 9 13 6.5 13ZM17.5 13C15 13 13 15 13 17.5C13 20 15 22 17.5 22C20 22 22 20 22 17.5C22 15 20 13 17.5 13Z"
+                                                          fill="currentColor"/>
+                                                    <path d="M17.5 16C17.5 16 17.4 16 17.5 16L16.7 15.3C16.1 14.7 15.7 13.9 15.6 13.1C15.5 12.4 15.5 11.6 15.6 10.8C15.7 9.99999 16.1 9.19998 16.7 8.59998L17.4 7.90002H17.5C18.3 7.90002 19 7.20002 19 6.40002C19 5.60002 18.3 4.90002 17.5 4.90002C16.7 4.90002 16 5.60002 16 6.40002V6.5L15.3 7.20001C14.7 7.80001 13.9 8.19999 13.1 8.29999C12.4 8.39999 11.6 8.39999 10.8 8.29999C9.99999 8.19999 9.20001 7.80001 8.60001 7.20001L7.89999 6.5V6.40002C7.89999 5.60002 7.19999 4.90002 6.39999 4.90002C5.59999 4.90002 4.89999 5.60002 4.89999 6.40002C4.89999 7.20002 5.59999 7.90002 6.39999 7.90002H6.5L7.20001 8.59998C7.80001 9.19998 8.19999 9.99999 8.29999 10.8C8.39999 11.5 8.39999 12.3 8.29999 13.1C8.19999 13.9 7.80001 14.7 7.20001 15.3L6.5 16H6.39999C5.59999 16 4.89999 16.7 4.89999 17.5C4.89999 18.3 5.59999 19 6.39999 19C7.19999 19 7.89999 18.3 7.89999 17.5V17.4L8.60001 16.7C9.20001 16.1 9.99999 15.7 10.8 15.6C11.5 15.5 12.3 15.5 13.1 15.6C13.9 15.7 14.7 16.1 15.3 16.7L16 17.4V17.5C16 18.3 16.7 19 17.5 19C18.3 19 19 18.3 19 17.5C19 16.7 18.3 16 17.5 16Z"
+                                                          fill="currentColor"/>
+                                                </svg>
+                                            </span>
+                                        </span>
+                                    </span>
+                                    <div class="d-flex flex-column text-end">
+                                        <span class="text-dark fw-bolder fs-2" id="overhead_po">0</span>
+                                        <span class="text-muted fw-bold mt-1">Overhead</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end::Body-->
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt32">
+                    <div class="col-md-4 col-lg-4 col-sm-6 mr-po">
+                        <div class="card card-xl-stretch mb-xl-8">
+                            <!--begin::Body-->
+                            <div class="card-body p-0">
+                                <div class="d-flex flex-stack card-p flex-grow-1">
+                                    <span class="symbol symbol-50px me-2">
+                                        <span class="symbol-label bg-light-success">
+                                            <span class="svg-icon svg-icon-success svg-icon-2x">                                                <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo8/dist/../src/media/svg/icons/Layout/Layout-4-blocks.svg-->
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                                                     height="24px" viewBox="0 0 24 24" version="1.1">
+                                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                        <rect x="0" y="0" width="24" height="24"/>
+                                                        <rect fill="#000000" x="4" y="4" width="7" height="7" rx="1.5"/>
+                                                        <path d="M5.5,13 L9.5,13 C10.3284271,13 11,13.6715729 11,14.5 L11,18.5 C11,19.3284271 10.3284271,20 9.5,20 L5.5,20 C4.67157288,20 4,19.3284271 4,18.5 L4,14.5 C4,13.6715729 4.67157288,13 5.5,13 Z M14.5,4 L18.5,4 C19.3284271,4 20,4.67157288 20,5.5 L20,9.5 C20,10.3284271 19.3284271,11 18.5,11 L14.5,11 C13.6715729,11 13,10.3284271 13,9.5 L13,5.5 C13,4.67157288 13.6715729,4 14.5,4 Z M14.5,13 L18.5,13 C19.3284271,13 20,13.6715729 20,14.5 L20,18.5 C20,19.3284271 19.3284271,20 18.5,20 L14.5,20 C13.6715729,20 13,19.3284271 13,18.5 L13,14.5 C13,13.6715729 13.6715729,13 14.5,13 Z"
+                                                              fill="#000000" opacity="0.3"/>
+                                                    </g>
+                                                </svg>                                                <!--end::Svg Icon--></span>
+                                        </span>
+                                    </span>
+                                    <div class="d-flex flex-column text-end">
+                                        <span class="text-dark fw-bolder fs-2" id="mr_po">0</span>
+                                        <span class="text-muted fw-bold mt-1">Material Requisition</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="mt32 mb16">
+                    <h2>Construction Statistic</h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="box mt16 mb16">
+                            <h5 class="mb16">Project Timeline</h5>
+                            <div id="construction_time_line"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="box mt16 mb16">
+                            <h5 class="mb16">Project Status</h5>
+                            <div id="site_state"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="box mt16 mb16">
+                            <h5 class="mb16">Sub Project Status</h5>
+                            <div id="project_status"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="box mt16 mb16">
+                            <h5 class="mb16">Sub Project Timeline</h5>
+                            <div id="project_time_line"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="box mt16 mb16">
+                            <h5 class="mb16">Material Requisition</h5>
+                            <div id="mrq_state"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="box mt16 mb16">
+                            <h5 class="mb16">Internal Transfer</h5>
+                            <div id="internal_transfer_state"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="box mt16 mb16">
+                            <h5 class="mb16">Purchase Order</h5>
+                            <div id="job_order_po"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </t>
+</templates>

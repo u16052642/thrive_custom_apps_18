@@ -1,0 +1,15 @@
+<thrive>
+    <record id="hr_contract_view_form_inherit" model="ir.ui.view">
+        <field name="name">hr.contract.form.inherit</field>
+        <field name="model">hr.contract</field>
+        <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='contract_type_id']" position="after">
+                <field name="f_3699_gross_remuneration"/>
+                <field name="f_4103_total_employee_tax"/>
+                <field name="f_4005_medical_aid_contributions"/>
+                <field name="f_4001_pension_fund_current"/>
+            </xpath>
+        </field>
+    </record>
+</thrive>

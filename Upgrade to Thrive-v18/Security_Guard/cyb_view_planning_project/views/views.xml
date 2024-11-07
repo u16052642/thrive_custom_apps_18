@@ -1,0 +1,19 @@
+<thrive>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="view_project_planning" model="ir.ui.view">
+            <field name="name">project.planning.view</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.view_project_kanban"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('o_kanban_manage_view')]" position="inside">
+                    <div role="menuitem">
+                         <a name="view_project_planning" type="object"
+                           t-attf-context="{'active_id': #{record.id.raw_value} }">Project Planning
+                        </a>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</thrive>

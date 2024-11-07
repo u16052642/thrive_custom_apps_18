@@ -1,0 +1,68 @@
+<thrive>
+    <data noupdate="1">
+        <record model="task.shift" id="task_shift1">
+            <field name="name">Day</field>
+            <field name="shift_rate">26.43</field>
+        </record>
+        <record model="task.shift" id="task_shift2">
+            <field name="name">Night</field>
+            <field name="shift_rate">39.645</field>
+        </record>
+        <record model="task.shift" id="task_shift3">
+            <field name="name">Overtime - Day</field>
+            <field name="shift_rate">39.645</field>
+        </record>
+        <record model="task.shift" id="task_shift4">
+            <field name="name">Overtime - Night</field>
+            <field name="shift_rate">39.645</field>
+        </record>
+        <record model="task.shift" id="task_shift5">
+            <field name="name">Sunday - Day</field>
+            <field name="shift_rate">39.645</field>
+        </record>
+        <record model="task.shift" id="task_shift6">
+            <field name="name">Sunday - Night</field>
+            <field name="shift_rate">39.645</field>
+        </record>
+        <record model="task.shift" id="task_shift7">
+            <field name="name">Public Holiday - Day</field>
+            <field name="shift_rate">39.645</field>
+        </record>
+        <record model="task.shift" id="task_shift8">
+            <field name="name">Public Holiday - Night</field>
+            <field name="shift_rate">39.645</field>
+        </record>
+        <record model="task.shift" id="task_shift9">
+            <field name="name">Area A - Day</field>
+            <field name="shift_rate">27.53</field>
+        </record>
+        <record model="task.shift" id="task_shift10">
+            <field name="name">Area A - Night</field>
+            <field name="shift_rate">41.3</field>
+        </record>
+        <record model="task.shift" id="task_shift11">
+            <field name="name">Area A - Overtime - Day</field>
+            <field name="shift_rate">41.3</field>
+        </record>
+        <record model="task.shift" id="task_shift12">
+            <field name="name">Area A - Overtime - Night</field>
+            <field name="shift_rate">41.3</field>
+        </record>
+        <record model="task.shift" id="task_shift13">
+            <field name="name">Area A - Sunday - Day</field>
+            <field name="shift_rate">41.3</field>
+        </record>
+        <record model="task.shift" id="task_shift14">
+            <field name="name">Area A - Sunday - Night</field>
+            <field name="shift_rate">41.3</field>
+        </record>
+        <record model="task.shift" id="task_shift15">
+            <field name="name">Area A - Public Holiday - Day</field>
+            <field name="shift_rate">41.3</field>
+        </record>
+        <record model="task.shift" id="task_shift16">
+            <field name="name">Area A - Public Holiday - Night</field>
+            <field name="shift_rate">41.3</field>
+        </record>
+    </data>
+</thrive>

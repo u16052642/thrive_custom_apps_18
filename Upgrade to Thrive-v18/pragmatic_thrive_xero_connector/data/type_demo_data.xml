@@ -1,0 +1,19 @@
+<thrive>
+    <data>
+        <record model="stock.picking.type.new" id="operation_demo_1">
+            <field name="name">Receipts</field>
+            <field name="type">IN</field>
+        </record>
+
+        <record model="stock.picking.type.new" id="operation_demo_2">
+            <field name="name">Delivery Orders</field>
+            <field name="type">OUT</field>
+        </record>
+
+        <record model="stock.picking.type.new" id="operation_demo_3">
+            <field name="name">Returns</field>
+            <field name="type">IN</field>
+        </record>
+
+    </data>
+</thrive>

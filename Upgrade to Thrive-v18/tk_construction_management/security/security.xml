@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<thrive>
+    <data noupdate="1">
+        <!--Project-->
+        <record id="construction_security_rule_project_manager" model="ir.rule">
+            <field name="name">Advance Construction : Administration</field>
+            <field name="model_id" ref="tk_construction_management.model_tk_construction_project"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4, ref('tk_construction_management.advance_construction_manager'))]"/>
+        </record>
+        <record id="construction_security_rule_building_department" model="ir.rule">
+            <field name="name">Construction : Own Department Project</field>
+            <field name="model_id" ref="tk_construction_management.model_tk_construction_project"/>
+            <field name="domain_force">[('department_id','in',user.department_ids.ids)]</field>
+            <field name="groups" eval="[(4, ref('tk_construction_management.advance_construction_department'))]"/>
+        </record>
+        <record id="construction_security_rule_building_user" model="ir.rule">
+            <field name="name">Construction : Own Record Project</field>
+            <field name="model_id" ref="tk_construction_management.model_tk_construction_project"/>
+            <field name="domain_force">[('responsible_id','=',user.id)]</field>
+            <field name="groups" eval="[(4, ref('tk_construction_management.advance_construction_user'))]"/>
+        </record>
+
+        <!-- Project Phase-->
+        <record id="construction_security_rule_job_sheet_manager" model="ir.rule">
+            <field name="name">Construction : Administration</field>
+            <field name="model_id" ref="tk_construction_management.model_job_costing"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4, ref('tk_construction_management.advance_construction_manager'))]"/>
+        </record>
+        <record id="construction_security_rule_job_sheet_department" model="ir.rule">
+            <field name="name">Construction : Own Department Job Sheet</field>
+            <field name="model_id" ref="tk_construction_management.model_job_costing"/>
+            <field name="domain_force">[('department_id','in',user.department_ids.ids)]</field>
+            <field name="groups" eval="[(4, ref('tk_construction_management.advance_construction_department'))]"/>
+        </record>
+        <record id="construction_security_rule_job_sheet_user" model="ir.rule">
+            <field name="name">Construction : Own Record Job Sheet</field>
+            <field name="model_id" ref="tk_construction_management.model_job_costing"/>
+            <field name="domain_force">[('responsible_id','=',user.id)]</field>
+            <field name="groups" eval="[(4, ref('tk_construction_management.advance_construction_user'))]"/>
+        </record>
+
+        <!--Job Order-->
+        <record id="construction_security_rule_job_order_manager" model="ir.rule">
+            <field name="name">Construction : Administration</field>
+            <field name="model_id" ref="tk_construction_management.model_job_order"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4, ref('tk_construction_management.advance_construction_manager'))]"/>
+        </record>
+        <record id="construction_security_rule_job_order_department" model="ir.rule">
+            <field name="name">Construction : Own Department Job Order</field>
+            <field name="model_id" ref="tk_construction_management.model_job_order"/>
+            <field name="domain_force">[('department_id','in',user.department_ids.ids)]</field>
+            <field name="groups" eval="[(4, ref('tk_construction_management.advance_construction_department'))]"/>
+        </record>
+        <record id="construction_security_rule_job_order_user" model="ir.rule">
+            <field name="name">Construction : Own Record Job Order</field>
+            <field name="model_id" ref="tk_construction_management.model_job_order"/>
+            <field name="domain_force">[('responsible_id','=',user.id)]</field>
+            <field name="groups" eval="[(4, ref('tk_construction_management.advance_construction_user'))]"/>
+        </record>
+
+        <!--Material Requisition-->
+        <record id="construction_security_rule_material_req_manager" model="ir.rule">
+            <field name="name">Construction : Administration</field>
+            <field name="model_id" ref="tk_construction_management.model_material_requisition"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4, ref('tk_construction_management.advance_construction_manager'))]"/>
+        </record>
+        <record id="construction_security_rule_material_req_department" model="ir.rule">
+            <field name="name">Construction : Own Department Material Requisition</field>
+            <field name="model_id" ref="tk_construction_management.model_material_requisition"/>
+            <field name="domain_force">[('department_id','in',user.department_ids.ids)]</field>
+            <field name="groups" eval="[(4, ref('tk_construction_management.advance_construction_department'))]"/>
+        </record>
+        <record id="construction_security_rule_material_req_user" model="ir.rule">
+            <field name="name">Construction : Own Record Material Requisition</field>
+            <field name="model_id" ref="tk_construction_management.model_material_requisition"/>
+            <field name="domain_force">[('responsible_id','=',user.id)]</field>
+            <field name="groups" eval="[(4, ref('tk_construction_management.advance_construction_user'))]"/>
+        </record>
+
+        <!--Internal Transfer-->
+        <record id="construction_security_rule_internal_transfer_manager" model="ir.rule">
+            <field name="name">Construction : Administration</field>
+            <field name="model_id" ref="tk_construction_management.model_internal_transfer"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4, ref('tk_construction_management.advance_construction_manager'))]"/>
+        </record>
+        <record id="construction_security_rule_internal_transfer_department" model="ir.rule">
+            <field name="name">Construction : Own Department Internal Transfer</field>
+            <field name="model_id" ref="tk_construction_management.model_internal_transfer"/>
+            <field name="domain_force">[('department_id','in',user.department_ids.ids)]</field>
+            <field name="groups" eval="[(4, ref('tk_construction_management.advance_construction_department'))]"/>
+        </record>
+        <record id="construction_security_rule_internal_transfer_user" model="ir.rule">
+            <field name="name">Construction : Own Record Internal Transfer</field>
+            <field name="model_id" ref="tk_construction_management.model_internal_transfer"/>
+            <field name="domain_force">[('responsible_id','=',user.id)]</field>
+            <field name="groups" eval="[(4, ref('tk_construction_management.advance_construction_user'))]"/>
+        </record>
+    </data>
+</thrive>

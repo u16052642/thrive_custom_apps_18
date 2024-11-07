@@ -1,0 +1,37 @@
+<thrive>
+    <record id="hr_employee_form_view_custom" model="ir.ui.view">
+        <field name="name">hr_employee_form_view_custom</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr_payroll.payroll_hr_employee_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='study_school']" position="after">
+                <field name="high_school_grade"/>
+                <field name="upload_school_certificate"/>
+                <field name="psira_certificate" widget="boolean_toggle"/>
+                <field name="psira_card" widget="boolean_toggle"/>
+                <field name="psira_number"/>
+                <field name="psira_expire_date"/>
+                <field name="upload_psira_certification"/>
+                <field name="security_certificate" widget="boolean_toggle"/>
+                <field name="upload_security_certificate"/>
+                <field name="firearm_competency" widget="boolean_toggle"/>
+                <field name="upload_firearm_comp_certificate"/>
+                <field name="criminal_clearance" widget="boolean_toggle"/>
+                <field name="upload_criminal_clearance_certificate"/>
+                <field name="driver_license" widget="boolean_toggle"/>
+                <field name="upload_driver_license"/>
+                <field name="upload_all_files_as_1_package"/>
+            </xpath>
+            <xpath expr="//field[@name='identification_id']" position="after">
+                <field name="upload_id_copy"/>
+            </xpath>
+            <xpath expr="//field[@name='passport_id']" position="after">
+                <field name="upload_passport_copy"/>
+            </xpath>
+            <xpath expr="//field[@name='registration_number']" position="after">
+                <field name="paye_ref"/>
+                <field name="uif_ref"/>
+            </xpath>
+        </field>
+    </record>
+</thrive>

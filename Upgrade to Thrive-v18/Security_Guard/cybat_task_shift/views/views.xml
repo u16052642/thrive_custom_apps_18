@@ -1,0 +1,163 @@
+<thrive>
+    <data>
+
+        <!-- Inherit Form View to Modify it -->
+
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="is_security_guard_field" model="ir.ui.view">
+            <field name="name">hr.employee.inherit</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='job_id']" position="after">
+                    <field name="is_security_guard"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="task_shift_rate_inherit" model="ir.ui.view">
+            <field name="name">task.shift.inherit</field>
+            <field name="model">account.analytic.line</field>
+            <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='project_id']" position="after">
+                    <field name="task_shift_id" domain="[('project_id','=',project_id)]"/>
+                </xpath>
+                <xpath expr="//field[@name='unit_amount']" position="after">
+                    <field name="rate_per_hour"/>
+                    <field name="total_earn" sum="Total"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="task_sift_rate_inherit" model="ir.ui.view">
+            <field name="name">shift.inherit</field>
+            <field name="model">hr.attendance</field>
+            <field name="inherit_id" ref="hr_attendance.view_attendance_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='employee_id']" position="after">
+                    <field name="project_id"/>
+                    <field name="task_shift_id"/>
+                </xpath>
+            </field>
+        </record>
+
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="project_id_and_task_shift_inherit" model="ir.ui.view">
+            <field name="name">project.inherit,shift</field>
+            <field name="model">planning.slot</field>
+            <field name="inherit_id" ref="planning.planning_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='company_id']" position="after">
+                    <field name="project_id" invisible="1"/>
+                    <field name="task_shift_id" domain="[('project_id', '=', project_id)]"/>
+                    <field name="attendance_check_in" string="Clock In"/>
+                    <field name="attendance_check_out" string="Clock Out"/>
+                    <button name="create_attendance" type="object" string="Check In Attendance"/>
+                    <button name="update_attendance_checkout" type="object" string="Check Out Attendance"/>
+                    <button name="create_timesheet" type="object" string="Create Timesheet"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="project_and_task_shift_inherit" model="ir.ui.view">
+            <field name="name">project.task_shift_inhert</field>
+            <field name="model">planning.slot</field>
+            <field name="inherit_id" ref="planning.planning_view_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='resource_id']" position="after">
+                    <field name="project_id"/>
+                    <field name="task_shift_id" domain="[('project_id', '=', project_id)]"/>
+                </xpath>
+
+            </field>
+        </record>
+        <!-- Inherit Form View to Modify it -->
+        <record id="shift_rate_inherit" model="ir.ui.view">
+            <field name="name">shift_rate.inherit</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.edit_project"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page string="Shift Rate Configuration">
+                        <field name="project_task_shift_ids">
+                            <tree editable="bottom">
+                                <field name="task_shift_id" required="1"/>
+                                <field name="shift_rate" required="1"/>
+                                <field name="hr_work_entry_type" required="1"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+
+            </field>
+        </record>
+        <record id="task_shift_view_form" model="ir.ui.view">
+            <field name="name">task_shift_view_form</field>
+            <field name="model">task.shift</field>
+            <field name="arch" type="xml">
+                <form string="task_shift_form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="shift_rate"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="task_shift_view_tree" model="ir.ui.view">
+            <field name="name">task_shift_view_tree</field>
+            <field name="model">task.shift</field>
+            <field name="arch" type="xml">
+                <tree string="task_shift_tree">
+                    <field name="name"/>
+                    <field name="shift_rate"/>
+                </tree>
+            </field>
+        </record>
+        <record id="task_shift_action" model="ir.actions.act_window">
+            <field name="name">Task Shift</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">task.shift</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="task_shift_categ" name="Task Shifts Rates"
+                  parent="project.menu_project_config"
+                  action="task_shift_action"/>
+
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="task_shift_inherit" model="ir.ui.view">
+            <field name="name">Task Shift</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="hr_timesheet.view_task_form2_inherited"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@id='timesheets_tab']/field[@name='timesheet_ids']/tree/field[@name='name']"
+                       position="after">
+                    <field name="task_shift_id"/>
+                </xpath>
+            </field>
+        </record>
+
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="project_inherit" model="ir.ui.view">
+            <field name="name">project.inherit</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='public']//field[@name='work_location_id']" position="after">
+                    <field name="project_ids" widget="many2many_tags"/>
+                </xpath>
+            </field>
+        </record>
+
+
+    </data>
+</thrive>

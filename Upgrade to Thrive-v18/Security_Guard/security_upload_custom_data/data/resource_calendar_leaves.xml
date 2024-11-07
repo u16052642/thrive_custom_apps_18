@@ -1,0 +1,94 @@
+<thrive>
+    <data noupdate="1">
+        <record model="resource.calendar.leaves" id="rcl_1">
+            <field name="date_from">2024-01-01 00:00:00</field>
+            <field name="date_to">2024-01-01 23:59:59</field>
+            <field name="name">New Year's Day</field>
+            <field name="work_entry_type_id" ref="hr_work_entry_contract.work_entry_type_compensatory"/>
+        </record>
+        <record model="resource.calendar.leaves" id="rcl_2">
+            <field name="date_from">2024-03-21 00:00:00</field>
+            <field name="date_to">2024-03-21 23:59:59</field>
+            <field name="name">Human Rights Day</field>
+            <field name="work_entry_type_id" ref="hr_work_entry_contract.work_entry_type_compensatory"/>
+        </record>
+        <record model="resource.calendar.leaves" id="rcl_3">
+            <field name="date_from">2024-03-29 00:00:00</field>
+            <field name="date_to">2024-03-29 23:59:59</field>
+            <field name="name">Good Friday</field>
+            <field name="work_entry_type_id" ref="hr_work_entry_contract.work_entry_type_compensatory"/>
+        </record>
+        <record model="resource.calendar.leaves" id="rcl_4">
+            <field name="date_from">2024-03-31 00:00:00</field>
+            <field name="date_to">2024-03-31 23:59:59</field>
+            <field name="name">Easter Sunday</field>
+            <field name="work_entry_type_id" ref="hr_work_entry_contract.work_entry_type_compensatory"/>
+        </record>
+        <record model="resource.calendar.leaves" id="rcl_5">
+            <field name="date_from">2024-04-01 00:00:00</field>
+            <field name="date_to">2024-04-01 23:59:59</field>
+            <field name="name">Family Day</field>
+            <field name="work_entry_type_id" ref="hr_work_entry_contract.work_entry_type_compensatory"/>
+        </record>
+        <record model="resource.calendar.leaves" id="rcl_6">
+            <field name="date_from">2024-04-27 00:00:00</field>
+            <field name="date_to">2024-04-27 23:59:59</field>
+            <field name="name">Freedom Day</field>
+            <field name="work_entry_type_id" ref="hr_work_entry_contract.work_entry_type_compensatory"/>
+        </record>
+        <record model="resource.calendar.leaves" id="rcl_7">
+            <field name="date_from">2024-05-01 00:00:00</field>
+            <field name="date_to">2024-05-01 23:59:59</field>
+            <field name="name">Workers' Day</field>
+            <field name="work_entry_type_id" ref="hr_work_entry_contract.work_entry_type_compensatory"/>
+        </record>
+        <record model="resource.calendar.leaves" id="rcl_8">
+            <field name="date_from">2024-05-24 00:00:00</field>
+            <field name="date_to">2024-05-24 23:59:59</field>
+            <field name="name">Mother's Day</field>
+            <field name="work_entry_type_id" ref="hr_work_entry_contract.work_entry_type_compensatory"/>
+        </record>
+        <record model="resource.calendar.leaves" id="rcl_9">
+            <field name="date_from">2024-06-16 00:00:00</field>
+            <field name="date_to">2024-06-16 23:59:59</field>
+            <field name="name">Youth Day</field>
+            <field name="work_entry_type_id" ref="hr_work_entry_contract.work_entry_type_compensatory"/>
+        </record>
+        <record model="resource.calendar.leaves" id="rcl_10">
+            <field name="date_from">2024-06-17 00:00:00</field>
+            <field name="date_to">2024-06-17 23:59:59</field>
+            <field name="name">Public Holiday</field>
+            <field name="work_entry_type_id" ref="hr_work_entry_contract.work_entry_type_compensatory"/>
+        </record>
+        <record model="resource.calendar.leaves" id="rcl_11">
+            <field name="date_from">2024-08-09 00:00:00</field>
+            <field name="date_to">2024-08-09 23:59:59</field>
+            <field name="name">National Women's Day</field>
+            <field name="work_entry_type_id" ref="hr_work_entry_contract.work_entry_type_compensatory"/>
+        </record>
+        <record model="resource.calendar.leaves" id="rcl_12">
+            <field name="date_from">2024-09-24 00:00:00</field>
+            <field name="date_to">2024-09-24 23:59:59</field>
+            <field name="name">Heritage Day</field>
+            <field name="work_entry_type_id" ref="hr_work_entry_contract.work_entry_type_compensatory"/>
+        </record>
+        <record model="resource.calendar.leaves" id="rcl_13">
+            <field name="date_from">2024-12-16 00:00:00</field>
+            <field name="date_to">2024-12-16 23:59:59</field>
+            <field name="name">Day of Reconciliation</field>
+            <field name="work_entry_type_id" ref="hr_work_entry_contract.work_entry_type_compensatory"/>
+        </record>
+        <record model="resource.calendar.leaves" id="rcl_14">
+            <field name="date_from">2024-12-25 00:00:00</field>
+            <field name="date_to">2024-12-25 23:59:59</field>
+            <field name="name">Christmas Day</field>
+            <field name="work_entry_type_id" ref="hr_work_entry_contract.work_entry_type_compensatory"/>
+        </record>
+        <record model="resource.calendar.leaves" id="rcl_15">
+            <field name="date_from">2024-12-26 00:00:00</field>
+            <field name="date_to">2024-12-26 23:59:59</field>
+            <field name="name">Day of Goodwill</field>
+            <field name="work_entry_type_id" ref="hr_work_entry_contract.work_entry_type_compensatory"/>
+        </record>
+    </data>
+</thrive>

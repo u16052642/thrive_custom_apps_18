@@ -1,0 +1,44 @@
+<thrive>
+    <data noupdate="1">
+        <record model="hr.work.entry.type" id="hr_work_entry_type_1">
+            <field name="color" eval="0"/>
+            <field name="name">NIGHT</field>
+            <field name="code">NIGHT</field>
+        </record>
+        <record model="hr.work.entry.type" id="hr_work_entry_type_2">
+            <field name="color" eval="0"/>
+            <field name="name">DAY</field>
+            <field name="code">DAY</field>
+        </record>
+        <record model="hr.work.entry.type" id="hr_work_entry_type_3">
+            <field name="color" eval="0"/>
+            <field name="name">SUNDAY- DAY</field>
+            <field name="code">SUNDAYDAY</field>
+        </record>
+        <record model="hr.work.entry.type" id="hr_work_entry_type_4">
+            <field name="color" eval="0"/>
+            <field name="name">OVERTIME - DAY</field>
+            <field name="code">OVERTIMEDAY</field>
+        </record>
+        <record model="hr.work.entry.type" id="hr_work_entry_type_5">
+            <field name="color" eval="0"/>
+            <field name="name">OVERTIME - NIGHT</field>
+            <field name="code">OVERTIMENIGHT</field>
+        </record>
+        <record model="hr.work.entry.type" id="hr_work_entry_type_6">
+            <field name="color" eval="0"/>
+            <field name="name">Public Holiday - Day</field>
+            <field name="code">PUBLICDAY</field>
+        </record>
+        <record model="hr.work.entry.type" id="hr_work_entry_type_7">
+            <field name="color" eval="0"/>
+            <field name="name">Public Holiday - NIGHT</field>
+            <field name="code">PUBLICNIGHT</field>
+        </record>
+        <record model="hr.work.entry.type" id="hr_work_entry_type_8">
+            <field name="color" eval="0"/>
+            <field name="name">SUNDAY - NIGHT</field>
+            <field name="code">SUNDAYNIGHT</field>
+        </record>
+    </data>
+</thrive>

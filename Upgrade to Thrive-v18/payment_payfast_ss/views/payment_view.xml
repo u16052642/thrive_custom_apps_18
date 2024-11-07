@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<thrive>
+    <record id="payment_acquirer_form_payfast" model="ir.ui.view">
+        <field name="name">payment.acquirer.form.payfast</field>
+        <field name="model">payment.provider</field>
+        <field name="inherit_id" ref="payment.payment_provider_form" />
+        <field name="arch" type="xml">
+            <group name="provider_credentials" position="inside">
+                <group
+                    string="PayFast Configuration"
+                    invisible="code not in ['payfast']"
+                >
+                    <field
+                        name="payfast_merchant_id"
+                        required="code in ['payfast'] and state != 'disabled'"
+                    />
+                    <field
+                        name="payfast_merchant_key"
+                        password="True"
+                        required="code in ['payfast'] and state != 'disabled'"
+                    />
+                    <field
+                        name="payfast_merchant_passphrase"
+                        password="True"
+                        required="code in ['payfast'] and state != 'disabled'"
+                    />
+                </group>
+            </group>
+        </field>
+    </record>
+
+</thrive>

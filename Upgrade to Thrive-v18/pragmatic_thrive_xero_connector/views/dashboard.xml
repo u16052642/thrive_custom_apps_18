@@ -1,0 +1,21 @@
+<thrive>
+    <data>
+        <record id="view_dashboard_action2" model="ir.actions.client">
+            <field name="name">Dashboard</field>
+            <field name="tag">meeting_chart</field>
+        </record>
+        <menuitem name="Xero Thrive Connector" id="menu_xero_thrive_connector"
+            web_icon="pragmatic_thrive_xero_connector,static/description/icon.png"/>
+
+        <menuitem id="menu_xero_thrive_connector_dashboard" name="Dashboard"
+                  action="view_dashboard_action2" parent="menu_xero_thrive_connector"
+                  sequence="10"/>
+
+        <menuitem id="menu_xero_thrive_connector_configuration" name="Configuration"
+                  parent="menu_xero_thrive_connector"
+                  sequence="100"/>
+        <menuitem id="menu_xero_thrive_connector_companies" name="Companies"
+                  action="base.action_res_company_form" parent="menu_xero_thrive_connector_configuration"
+                  sequence="1"/>
+    </data>
+</thrive>

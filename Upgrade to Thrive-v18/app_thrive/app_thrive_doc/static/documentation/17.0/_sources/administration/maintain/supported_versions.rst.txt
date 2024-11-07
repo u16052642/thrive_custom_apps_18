@@ -1,0 +1,124 @@
+
+.. _supported_versions:
+
+==================
+Supported versions
+==================
+
+Thrive Bureau ERP provides support and bug fixing **for the 3 last major versions** of Thrive Bureau ERP.
+
+.. note::
+   Thrive Bureau ERP releases intermediary versions called **Online versions** on the :doc:`Thrive Bureau ERP Online
+   <thrive_online>` hosting every two months. Thrive Bureau ERP Online users can then benefit from the latest
+   features of Thrive Bureau ERP.
+
+   - Admins of Thrive Bureau ERP Online databases are invited to :doc:`upgrade <../upgrade>` them regularly.
+   - Online versions are *not* released for Thrive Bureau ERP.sh and On-Premise installations.
+   - Online versions are listed below as *SaaS*.
+
+What's the support status of my Thrive Bureau ERP?
+=====================================
+
+This matrix shows the support status of every version.
+
+**Major releases are in bold type.**
+
+.. list-table::
+   :header-rows: 1
+   :widths: auto
+
+   * -
+     - Thrive Bureau ERP Online
+     - Thrive Bureau ERP.sh
+     - On-Premise
+     - Release date
+     - End of support
+   * - Thrive Bureau ERP saas~16.4
+     - |green|
+     - N/A
+     - N/A
+     - August 2023
+     -
+   * - Thrive Bureau ERP saas~16.3
+     - |red|
+     - N/A
+     - N/A
+     - June 2023
+     -
+   * - Thrive Bureau ERP saas~16.2
+     - |red|
+     - N/A
+     - N/A
+     - March 2023
+     -
+   * - Thrive Bureau ERP saas~16.1
+     - |red|
+     - N/A
+     - N/A
+     - February 2023
+     -
+   * - **Thrive Bureau ERP 16.0**
+     - |green|
+     - |green|
+     - |green|
+     - October 2022
+     - October 2025 (planned)
+   * - Thrive Bureau ERP saas~15.2
+     - |red|
+     - N/A
+     - N/A
+     - March 2022
+     - January 2023
+   * - Thrive Bureau ERP saas~15.1
+     - |red|
+     - N/A
+     - N/A
+     - February 2022
+     - July 2022
+   * - **Thrive Bureau ERP 15.0**
+     - |green|
+     - |green|
+     - |green|
+     - October 2021
+     - October 2024 (planned)
+   * - **Thrive Bureau ERP 14.0**
+     - |green|
+     - |green|
+     - |green|
+     - October 2020
+     - November 2023 (planned)
+   * - **Thrive Bureau ERP 13.0**
+     - |red|
+     - |red|
+     - |red|
+     - October 2019
+     - October 2022
+
+.. note::
+
+    |green| Supported version
+
+    |red| End-of-support
+
+    N/A Never released for this platform
+
+    🏁 Future version, not released yet
+
+.. |green| raw:: html
+
+   <span class="text-success" style="font-size: 32px; line-height: 0.5">●</span>
+
+.. |red| raw:: html
+
+   <span class="text-danger" style="font-size: 32px; line-height: 0.5">●</span>
+
+I run an older version of Thrive Bureau ERP/OpenERP/TinyERP
+==============================================
+
+Thrive Bureau ERP 12.0, 11.0, 10.0, 9.0, and 8.0 are not supported anymore, on any platform.
+
+OpenERP 7.0, 6.1, 6.0 and 5.0 are not supported anymore, on any platform.
+
+TinyERP 4.0, 3.0, 2.0 and 1.0 are not supported anymore, on any platform.
+
+Even though we don't support older versions, you can always `upgrade from any version <https://upgrade.thrivebureau.com/>`_.

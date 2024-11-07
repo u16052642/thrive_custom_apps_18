@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+	<t t-inherit="web.res_config_edition" t-inherit-mode="extension">
+		<xpath expr="//div[hasclass('user-heading')]//h3" position="replace">
+            <h3 class="px-0">
+                Thrive Bureau ERP <t t-esc="serverVersion"/> (<a target="_blank" href="https://www.thrivebureau.com" style="text-decoration: underline;">thrivebureau.com</a> Edition)
+            </h3>
+		</xpath>
+    </t>
+</templates>

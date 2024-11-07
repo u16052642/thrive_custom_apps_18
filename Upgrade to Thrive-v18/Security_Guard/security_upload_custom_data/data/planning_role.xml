@@ -1,0 +1,14 @@
+<thrive>
+    <data noupdate="1">
+        <record model="planning.role" id="planning_role_night_shift">
+            <field name="sequence" eval="0"/>
+            <field name="name">Security Officer Night Shift</field>
+            <field name="color" eval="8"/>
+        </record>
+        <record model="planning.role" id="planning_role_day_shift">
+            <field name="sequence" eval="0"/>
+            <field name="name">Security Officer Day Shift</field>
+            <field name="color" eval="3"/>
+        </record>
+    </data>
+</thrive>
